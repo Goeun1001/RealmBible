@@ -14,13 +14,12 @@ class BibleListViewModel: ObservableObject {
     @Published var bibles = [BibleViewModel]()
     
     init() {
-//        getBible()
+        getBible()
     }
     
-    func getBible() -> RealmBible? {
-        let realm = try! Realm()
-        let result = realm.objects(RealmBible.self).filter("id == 1")
-        return result.first
+    func getBible() {
+        let bibles = RealmManager.shared.getKoreaBibleLists()
+        self.bibles = bibles.map(BibleViewModel.init)
     }
 }
 
@@ -30,10 +29,6 @@ class BibleViewModel {
     
     init(bible: RealmBible) {
         self.bible = bible
-    }
-    
-    var id: Int {
-        return self.id
     }
     
     var vcode: String {

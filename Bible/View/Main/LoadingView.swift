@@ -15,6 +15,8 @@ struct LoadingView: View {
         Text("Hi, please wait for load view")
             .onAppear() {
                 DataReader().setUpRealm()
+                UserDefaults.standard.set("GAE", forKey: "vcode")
+                UserDefaults.standard.set("1", forKey: "bcode")
                 UserDefaults.standard.set(true, forKey: "isLoaded")
                 UserDefaults.standard.synchronize()
                 self.settings.isLoaded = true

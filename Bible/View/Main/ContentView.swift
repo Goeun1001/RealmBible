@@ -11,11 +11,13 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject private var bibleListVM = BibleListViewModel()
+    @ObservedObject private var currentVerseVM = currentVerseViewModel()
     
     var body: some View {
         NavigationView {
         
-        BibleListView(bibles: self.bibleListVM.bibles)
+            currentVerseView(verses: self.currentVerseVM.verses)
+//        BibleListView(bibles: self.bibleListVM.bibles)
          
             .navigationBarTitle("Bible List")
         }

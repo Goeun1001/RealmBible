@@ -15,11 +15,14 @@
 		D9B8CFF524DAB51E00890693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B8CFF324DAB51E00890693 /* LaunchScreen.storyboard */; };
 		D9B8D00124DAB5D800890693 /* DataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D00024DAB5D800890693 /* DataReader.swift */; };
 		D9B8D00324DAB77600890693 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D00224DAB77600890693 /* DateConverter.swift */; };
-		D9B8D00A24DAB95B00890693 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D00924DAB95B00890693 /* Content.swift */; };
 		D9B8D01024DC093000890693 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D00F24DC093000890693 /* RealmModel.swift */; };
 		D9B8D01424DC14AD00890693 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D01324DC14AD00890693 /* LoadingView.swift */; };
 		D9B8D01724DC2ABE00890693 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D01624DC2ABE00890693 /* ContentViewModel.swift */; };
 		D9B8D01A24DC2C9B00890693 /* BibleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D01924DC2C9B00890693 /* BibleListView.swift */; };
+		D9C332AC24E1546400968023 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332AB24E1546400968023 /* RealmManager.swift */; };
+		D9C332AE24E15E6D00968023 /* currentVerseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332AD24E15E6D00968023 /* currentVerseViewModel.swift */; };
+		D9C332B224E15F2700968023 /* currentVerseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332B124E15F2700968023 /* currentVerseView.swift */; };
+		D9C332B524E1638100968023 /* holybible.db in Resources */ = {isa = PBXBuildFile; fileRef = D9C332A924E13B2400968023 /* holybible.db */; };
 		F8C450593C927A871E1F7A3C /* Pods_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6BF7AEE9241FE5DCCAFF2 /* Pods_Bible.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,12 +40,14 @@
 		D9B8CFF624DAB51E00890693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9B8D00024DAB5D800890693 /* DataReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReader.swift; sourceTree = "<group>"; };
 		D9B8D00224DAB77600890693 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
-		D9B8D00624DAB88800890693 /* holybible.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = holybible.db; path = Bible/holybible.db; sourceTree = SOURCE_ROOT; };
-		D9B8D00924DAB95B00890693 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		D9B8D00F24DC093000890693 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		D9B8D01324DC14AD00890693 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D9B8D01624DC2ABE00890693 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		D9B8D01924DC2C9B00890693 /* BibleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleListView.swift; sourceTree = "<group>"; };
+		D9C332A924E13B2400968023 /* holybible.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = holybible.db; sourceTree = "<group>"; };
+		D9C332AB24E1546400968023 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		D9C332AD24E15E6D00968023 /* currentVerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentVerseViewModel.swift; sourceTree = "<group>"; };
+		D9C332B124E15F2700968023 /* currentVerseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentVerseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +97,7 @@
 				D9B8CFFC24DAB59B00890693 /* Model */,
 				D9B8CFE824DAB51B00890693 /* AppDelegate.swift */,
 				D9B8CFEA24DAB51B00890693 /* SceneDelegate.swift */,
-				D9B8D00624DAB88800890693 /* holybible.db */,
+				D9C332A924E13B2400968023 /* holybible.db */,
 				D9B8CFEE24DAB51E00890693 /* Assets.xcassets */,
 				D9B8CFF324DAB51E00890693 /* LaunchScreen.storyboard */,
 				D9B8CFF624DAB51E00890693 /* Info.plist */,
@@ -120,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				D9B8D00824DAB94A00890693 /* Main */,
-				D9B8D00924DAB95B00890693 /* Content.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,10 +132,12 @@
 		D9B8D00824DAB94A00890693 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D9B8D01324DC14AD00890693 /* LoadingView.swift */,
 				D9B8CFEC24DAB51B00890693 /* ContentView.swift */,
 				D9B8D01924DC2C9B00890693 /* BibleListView.swift */,
-				D9B8D01324DC14AD00890693 /* LoadingView.swift */,
 				D9B8D01624DC2ABE00890693 /* ContentViewModel.swift */,
+				D9C332AD24E15E6D00968023 /* currentVerseViewModel.swift */,
+				D9C332B124E15F2700968023 /* currentVerseView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 			children = (
 				D9B8D00F24DC093000890693 /* RealmModel.swift */,
 				D9B8D00024DAB5D800890693 /* DataReader.swift */,
+				D9C332AB24E1546400968023 /* RealmManager.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -222,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9C332B524E1638100968023 /* holybible.db in Resources */,
 				D9B8CFF524DAB51E00890693 /* LaunchScreen.storyboard in Resources */,
 				D9B8CFF224DAB51E00890693 /* Preview Assets.xcassets in Resources */,
 				D9B8CFEF24DAB51E00890693 /* Assets.xcassets in Resources */,
@@ -280,11 +288,13 @@
 				D9B8D00124DAB5D800890693 /* DataReader.swift in Sources */,
 				D9B8D00324DAB77600890693 /* DateConverter.swift in Sources */,
 				D9B8D01024DC093000890693 /* RealmModel.swift in Sources */,
-				D9B8D00A24DAB95B00890693 /* Content.swift in Sources */,
+				D9C332AE24E15E6D00968023 /* currentVerseViewModel.swift in Sources */,
+				D9C332B224E15F2700968023 /* currentVerseView.swift in Sources */,
 				D9B8CFE924DAB51B00890693 /* AppDelegate.swift in Sources */,
 				D9B8D01724DC2ABE00890693 /* ContentViewModel.swift in Sources */,
 				D9B8D01A24DC2C9B00890693 /* BibleListView.swift in Sources */,
 				D9B8CFEB24DAB51B00890693 /* SceneDelegate.swift in Sources */,
+				D9C332AC24E1546400968023 /* RealmManager.swift in Sources */,
 				D9B8CFED24DAB51B00890693 /* ContentView.swift in Sources */,
 				D9B8D01424DC14AD00890693 /* LoadingView.swift in Sources */,
 			);

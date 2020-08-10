@@ -18,13 +18,13 @@ class RealmBible: Object {
 }
 
 class RealmVerse: Object {
-    dynamic var id = 0
-    dynamic var vcode = ""
-    dynamic var bcode = 0
-    dynamic var cnum = ""
-    dynamic var vnum = ""
-    dynamic var content = ""
-    dynamic var bookmarked = 0
+    @objc dynamic var id = 0
+    @objc dynamic var vcode = ""
+    @objc dynamic var bcode = 0
+    @objc dynamic var cnum = ""
+    @objc dynamic var vnum = ""
+    @objc dynamic var content = ""
+    @objc dynamic var bookmarked = 0
 }
 
 class RealmDaily: Object {

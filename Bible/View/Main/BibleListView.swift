@@ -17,7 +17,7 @@ struct BibleListView: View {
     }
     
     var body: some View {
-        ForEach(self.bibles, id:\.id) { bible in
+        List(self.bibles, id:\.name) { bible in
             HStack {
                 Text(bible.name)
             }

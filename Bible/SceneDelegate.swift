@@ -36,26 +36,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
         }
         
-        let fileName = "holybible.db"
-        
-        let documentsPathURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        let destinationPath = documentsPathURL.appendingPathComponent(fileName).path
-        
         let fileManager = FileManager.default
-        
+
+        guard let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+
+        let finalDatabaseURL = documentsUrl.appendingPathComponent("holybible.db")
+
         do {
-            if !fileManager.fileExists(atPath: destinationPath) {
+            if !fileManager.fileExists(atPath: finalDatabaseURL.path) {
                 print("DB does not exist in documents folder")
-                
-                if let fromURL = Bundle.main.resourceURL?.appendingPathComponent(fileName) {
-                    try fileManager.copyItem(atPath: fromURL.path, toPath: destinationPath)
-                    debugPrint("file copied?: \(fileManager.fileExists(atPath: destinationPath))")
+
+//                if let fromURL = Bundle.main.resourceURL?.appendingPathComponent("holybible.db") {
+//                try fileManager.copyItem(atPath: fromURL.path, toPath: finalDatabaseURL.path)
+//                debugPrint("file copied?: \(fileManager.fileExists(atPath: finalDatabaseURL.path))")
+//
+                if let dbFilePath = Bundle.main.path(forResource: "holybible", ofType: "db") {
+                    try fileManager.copyItem(atPath: dbFilePath, toPath: finalDatabaseURL.path)
+                    
+                    
                 } else {
                     print("Uh oh - foo.db is not in the app bundle")
                 }
             } else {
-                print("Database file found at path: \(destinationPath)")
+                print("Database file found at path: \(finalDatabaseURL.path)")
             }
         } catch {
             print("Unable to copy foo.db: \(error)")
@@ -97,7 +100,7 @@ struct StartView: View {
     @EnvironmentObject var settings: LoadingSettings
 
     var body: some View {
-        if UserDefaults.standard.bool(forKey: "isLoaded") == true  {
+        if UserDefaults.standard.bool(forKey: "isLoaded") {
             return AnyView(ContentView())
         } else {
             return AnyView(LoadingView())
