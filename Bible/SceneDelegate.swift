@@ -45,11 +45,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         do {
             if !fileManager.fileExists(atPath: finalDatabaseURL.path) {
                 print("DB does not exist in documents folder")
-
-//                if let fromURL = Bundle.main.resourceURL?.appendingPathComponent("holybible.db") {
-//                try fileManager.copyItem(atPath: fromURL.path, toPath: finalDatabaseURL.path)
-//                debugPrint("file copied?: \(fileManager.fileExists(atPath: finalDatabaseURL.path))")
-//
                 if let dbFilePath = Bundle.main.path(forResource: "holybible", ofType: "db") {
                     try fileManager.copyItem(atPath: dbFilePath, toPath: finalDatabaseURL.path)
                     
@@ -101,9 +96,9 @@ struct StartView: View {
 
     var body: some View {
         if UserDefaults.standard.bool(forKey: "isLoaded") {
-            return AnyView(ContentView())
+            return AnyView(currentVerseView())
         } else {
-            return AnyView(LoadingView())
+            return AnyView(LoadingBaseView())
         }
     }
 }

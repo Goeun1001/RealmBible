@@ -8,15 +8,19 @@
 
 import SwiftUI
 
-struct LoadingView: View {
-    
+struct LoadingBaseView: View {
     @EnvironmentObject var settings: LoadingSettings
+    
     var body: some View {
-        Text("Hi, please wait for load view")
+        LoadingView(isShowing: .constant(true)) {
+            Text("Hi, please wait for load view")
+            }
             .onAppear() {
                 DataReader().setUpRealm()
                 UserDefaults.standard.set("GAE", forKey: "vcode")
                 UserDefaults.standard.set("1", forKey: "bcode")
+                UserDefaults.standard.set("1", forKey: "cnum")
+                UserDefaults.standard.set("old", forKey: "type")
                 UserDefaults.standard.set(true, forKey: "isLoaded")
                 UserDefaults.standard.synchronize()
                 self.settings.isLoaded = true
@@ -25,8 +29,8 @@ struct LoadingView: View {
     
 }
 
-struct LoadingView_Previews: PreviewProvider {
+struct LoadingBaseView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
+        LoadingBaseView()
     }
 }

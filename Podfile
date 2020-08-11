@@ -7,5 +7,6 @@ target 'Bible' do
 
   # Pods for Bible
 pod 'RealmSwift'
+pod 'WaterfallGrid'
 
 end
