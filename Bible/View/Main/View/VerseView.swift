@@ -10,21 +10,50 @@ import SwiftUI
 
 struct VerseView: View {
     
-    @ObservedObject private var verseVM = currentVerseViewModel()
+    @ObservedObject private var verseVM = VerseViewModel()
     @State private var show_modal: Bool = false
-    @State var isChanged: Bool = false
+    
+    @State private var offset = CGSize.zero
+    @State private var float = false
     
     var body: some View {
         NavigationView {
-            List(verseVM.verses, id:\.id) { verse in
-                HStack {
-                    VStack {
-                        Text(verse.vnum)
-                        .font(.custom("NanumSquareL", size: 20))
-                        Spacer()
+            ZStack(alignment: .bottom) {
+                GeometryReader { _ in
+                    List(self.verseVM.verses, id:\.id) { verse in
+                        HStack {
+                            VStack {
+                                Text(verse.vnum)
+                                    .font(.custom("NanumSquareL", size: 20))
+                                Spacer()
+                            }
+                            Text(verse.content)
+                                .font(.custom("NanumSquareB", size: 18))
+                        }
                     }
-                    Text(verse.content)
-                    .font(.custom("NanumSquareB", size: 18))
+                }.gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            self.offset = gesture.translation
+                            print(self.offset.height)
+                            if self.offset.height > 0 {
+                                self.float = true
+                            } else if (self.offset.height < 0) {
+                                self.float = false
+//                                self.offset = .zero
+                            }
+                    }
+                        
+                    .onEnded { _ in
+                        print("isEnded")
+                        
+                    }
+                )
+                
+                if float {
+                    FloatingTabbar()
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
                 }
             }
             .onAppear() {
@@ -46,15 +75,15 @@ struct VerseView: View {
                             }
                     }
                     imageView(imageName: "arrowtriangle.right.fill")
-                    .onTapGesture {
-                        if (Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1) {
+                        .onTapGesture {
+                            if (Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1) {
                                 let plus = Int(self.verseVM.verses.first!.cnum)! + 1
                                 UserDefaults.standard.set("\(plus)", forKey: "cnum")
                                 UserDefaults.standard.synchronize()
                                 self.verseVM.apply(.onAppear)
                             }
                     }
-                })
+            })
         }
         
     }

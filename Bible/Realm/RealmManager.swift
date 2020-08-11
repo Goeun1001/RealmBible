@@ -28,7 +28,7 @@ class RealmManager {
     }
     
     func getCustomBible(vcode: String, bcode: String, cnum: String) -> AnyPublisher<[RealmVerse], RealmError> {
-        print(cnum)
+        
         var verseList : [RealmVerse] = []
         
         do {
@@ -41,7 +41,6 @@ class RealmManager {
         return Just(verseList)
         .setFailureType(to: RealmError.self)
         .eraseToAnyPublisher()
-//        return verseList
     }
     
     func getNamefrombcode(bcode: String) -> AnyPublisher<RealmBible, RealmError> {

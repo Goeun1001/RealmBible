@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class currentVerseViewModel: ObservableObject, ViewModelType {
+class VerseViewModel: ObservableObject, ViewModelType {
     
     typealias InputType = Input
     
@@ -104,45 +104,5 @@ class currentVerseViewModel: ObservableObject, ViewModelType {
         ]
         
     }
-    
-//    func getBibleName() {
-//        let bcode = UserDefaults.standard.value(forKey: "bcode") as! String
-//        let biblename = RealmManager.shared.getNamefrombcode(bcode: bcode)
-//        self.bibleName = biblename
-//    }
-}
 
-class VerseViewModel {
-    
-    let id = UUID()
-    
-    var verse: RealmVerse
-    
-    init(verse: RealmVerse) {
-        self.verse = verse
-    }
-    
-    var vcode: String {
-        return self.verse.vcode
-    }
-    
-    var bcode: Int {
-        return self.verse.bcode
-    }
-    
-    var cnum: String {
-        return self.verse.cnum
-    }
-    
-    var vnum: String {
-        return self.verse.vnum
-    }
-    
-    var content: String {
-        return self.verse.content
-    }
-    
-    var bookmarked: Int {
-        return self.verse.bookmarked
-    }
 }

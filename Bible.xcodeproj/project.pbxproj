@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92BAD9E24E2A2CA00A28398 /* FloatingTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BAD9D24E2A2CA00A28398 /* FloatingTabbar.swift */; };
 		D98175A024E25F360013CFC6 /* viewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981759F24E25F360013CFC6 /* viewModelType.swift */; };
 		D98175A224E25FD80013CFC6 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98175A124E25FD80013CFC6 /* RealmError.swift */; };
 		D98175A824E27AB70013CFC6 /* NanumSquareB.otf in Resources */ = {isa = PBXBuildFile; fileRef = D98175A524E27AB40013CFC6 /* NanumSquareB.otf */; };
@@ -25,13 +26,12 @@
 		D9B8D01724DC2ABE00890693 /* BibleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D01624DC2ABE00890693 /* BibleListViewModel.swift */; };
 		D9B8D01A24DC2C9B00890693 /* BibleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B8D01924DC2C9B00890693 /* BibleListView.swift */; };
 		D9C332AC24E1546400968023 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332AB24E1546400968023 /* RealmManager.swift */; };
-		D9C332AE24E15E6D00968023 /* currentVerseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332AD24E15E6D00968023 /* currentVerseViewModel.swift */; };
-		D9C332B224E15F2700968023 /* currentVerseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332B124E15F2700968023 /* currentVerseView.swift */; };
+		D9C332AE24E15E6D00968023 /* VerseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332AD24E15E6D00968023 /* VerseViewModel.swift */; };
+		D9C332B224E15F2700968023 /* VerseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332B124E15F2700968023 /* VerseView.swift */; };
 		D9C332B524E1638100968023 /* holybible.db in Resources */ = {isa = PBXBuildFile; fileRef = D9C332A924E13B2400968023 /* holybible.db */; };
 		D9C332B724E1741D00968023 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332B624E1741D00968023 /* ActivityIndicator.swift */; };
 		D9C332BA24E1746C00968023 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332B924E1746C00968023 /* LoadingView.swift */; };
 		D9C332C024E181CD00968023 /* NumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332BF24E181CD00968023 /* NumberListView.swift */; };
-		D9C332C224E1824300968023 /* numberListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C332C124E1824300968023 /* numberListViewModel.swift */; };
 		F8C450593C927A871E1F7A3C /* Pods_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6BF7AEE9241FE5DCCAFF2 /* Pods_Bible.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,7 @@
 		23C6BF7AEE9241FE5DCCAFF2 /* Pods_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		387DD88A60DDE233C157F147 /* Pods-Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bible.release.xcconfig"; path = "Target Support Files/Pods-Bible/Pods-Bible.release.xcconfig"; sourceTree = "<group>"; };
 		AF6CF102BAFCC4EC144D0F8B /* Pods-Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bible.debug.xcconfig"; path = "Target Support Files/Pods-Bible/Pods-Bible.debug.xcconfig"; sourceTree = "<group>"; };
+		D92BAD9D24E2A2CA00A28398 /* FloatingTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTabbar.swift; sourceTree = "<group>"; };
 		D981759F24E25F360013CFC6 /* viewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModelType.swift; sourceTree = "<group>"; };
 		D98175A124E25FD80013CFC6 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		D98175A424E27AB40013CFC6 /* NanumSquareEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.otf; sourceTree = "<group>"; };
@@ -60,12 +61,11 @@
 		D9B8D01924DC2C9B00890693 /* BibleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleListView.swift; sourceTree = "<group>"; };
 		D9C332A924E13B2400968023 /* holybible.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = holybible.db; sourceTree = "<group>"; };
 		D9C332AB24E1546400968023 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		D9C332AD24E15E6D00968023 /* currentVerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentVerseViewModel.swift; sourceTree = "<group>"; };
-		D9C332B124E15F2700968023 /* currentVerseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentVerseView.swift; sourceTree = "<group>"; };
+		D9C332AD24E15E6D00968023 /* VerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseViewModel.swift; sourceTree = "<group>"; };
+		D9C332B124E15F2700968023 /* VerseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseView.swift; sourceTree = "<group>"; };
 		D9C332B624E1741D00968023 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D9C332B924E1746C00968023 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D9C332BF24E181CD00968023 /* NumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberListView.swift; sourceTree = "<group>"; };
-		D9C332C124E1824300968023 /* numberListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numberListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,14 @@
 				23C6BF7AEE9241FE5DCCAFF2 /* Pods_Bible.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D92BAD9C24E2A2B800A28398 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D92BAD9D24E2A2CA00A28398 /* FloatingTabbar.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D98175A324E27AA40013CFC6 /* Font */ = {
@@ -154,6 +162,7 @@
 		D9B8D00724DAB8E400890693 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D92BAD9C24E2A2B800A28398 /* Extension */,
 				D9C332B824E1745F00968023 /* Loading */,
 				D9B8D00824DAB94A00890693 /* Main */,
 			);
@@ -201,7 +210,7 @@
 		D9C332BB24E1791600968023 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D9C332B124E15F2700968023 /* currentVerseView.swift */,
+				D9C332B124E15F2700968023 /* VerseView.swift */,
 				D9B8D01924DC2C9B00890693 /* BibleListView.swift */,
 				D9C332BF24E181CD00968023 /* NumberListView.swift */,
 			);
@@ -211,9 +220,8 @@
 		D9C332BC24E1791B00968023 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D9C332AD24E15E6D00968023 /* currentVerseViewModel.swift */,
+				D9C332AD24E15E6D00968023 /* VerseViewModel.swift */,
 				D9B8D01624DC2ABE00890693 /* BibleListViewModel.swift */,
-				D9C332C124E1824300968023 /* numberListViewModel.swift */,
 				D981759F24E25F360013CFC6 /* viewModelType.swift */,
 			);
 			path = ViewModel;
@@ -351,11 +359,11 @@
 				D98175A024E25F360013CFC6 /* viewModelType.swift in Sources */,
 				D9B8D00124DAB5D800890693 /* DataReader.swift in Sources */,
 				D9B8D00324DAB77600890693 /* DateConverter.swift in Sources */,
+				D92BAD9E24E2A2CA00A28398 /* FloatingTabbar.swift in Sources */,
 				D9B8D01024DC093000890693 /* RealmModel.swift in Sources */,
-				D9C332AE24E15E6D00968023 /* currentVerseViewModel.swift in Sources */,
+				D9C332AE24E15E6D00968023 /* VerseViewModel.swift in Sources */,
 				D9C332B724E1741D00968023 /* ActivityIndicator.swift in Sources */,
-				D9C332C224E1824300968023 /* numberListViewModel.swift in Sources */,
-				D9C332B224E15F2700968023 /* currentVerseView.swift in Sources */,
+				D9C332B224E15F2700968023 /* VerseView.swift in Sources */,
 				D98175A224E25FD80013CFC6 /* RealmError.swift in Sources */,
 				D9C332C024E181CD00968023 /* NumberListView.swift in Sources */,
 				D9B8CFE924DAB51B00890693 /* AppDelegate.swift in Sources */,

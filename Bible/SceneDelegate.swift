@@ -96,7 +96,7 @@ struct StartView: View {
 
     var body: some View {
         if UserDefaults.standard.bool(forKey: "isLoaded") {
-            return AnyView(currentVerseView())
+            return AnyView(VerseView())
         } else {
             return AnyView(LoadingBaseView())
         }
