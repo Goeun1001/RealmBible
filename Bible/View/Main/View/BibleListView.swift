@@ -42,17 +42,15 @@ struct BibleListView: View {
                     .onTapGesture {
                         print("구약 tapped")
                         self.isOld = "old"
-//                        UserDefaults.standard.set("old", forKey: "type")
-//                        UserDefaults.standard.synchronize()
-//                        self.bibleListVM.getBible()
+                        UserDefaults.standard.set("old", forKey: "type")
+                        UserDefaults.standard.synchronize()
                 }
                 Text("신약")
                     .foregroundColor(self.isOld == "old" ? .gray : .black)
                     .onTapGesture {
                         self.isOld = "new"
-//                        UserDefaults.standard.set("new", forKey: "type")
-//                        UserDefaults.standard.synchronize()
-//                        self.bibleListVM.getBible()
+                        UserDefaults.standard.set("new", forKey: "type")
+                        UserDefaults.standard.synchronize()
                 }
             })
         }

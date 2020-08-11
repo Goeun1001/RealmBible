@@ -31,8 +31,6 @@ class currentVerseViewModel: ObservableObject, ViewModelType {
             self.bcode = UserDefaults.standard.value(forKey: "bcode") as! String
             self.cnum = UserDefaults.standard.value(forKey: "cnum") as! String
             onAppearSubject.send(())
-            bindInputs()
-            bindOutputs()
         }
     }
     private let onAppearSubject = PassthroughSubject<Void, Never>()
