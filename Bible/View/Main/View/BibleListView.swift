@@ -20,14 +20,16 @@ struct BibleListView: View {
         List((isOld == "old") ? bibleListVM.oldbibles : bibleListVM.newBibles, id:\.id) { bible in
             NavigationLink(destination: NumberListView(dismissAll: self.$dismissAll, bcode: bible.bcode, chapter_num: bible.chapterCount, name: bible.name)) {
                 HStack {
-                    Text(String(bible.bcode))
-                    .font(.custom("NanumSquareL", size: 25))
+                    Text(self.isOld == "old" ? String(bible.bcode) : String(bible.bcode - 39))
+                        .font(.custom("NanumSquareL", size: 25))
                     Text(bible.name)
-                    .font(.custom("NanumSquareEB", size: 25))
+                        .font(.custom("NanumSquareEB", size: 25))
                     Spacer()
                     Text("총 \(bible.chapterCount)장")
-                    .font(.custom("NanumSquareL", size: 25))
+                        .font(.custom("NanumSquareL", size: 20))
                 }
+                .padding(.top, 10)
+                .padding(.bottom, 10)
             }
             .onAppear() {
                 if (self.dismissAll == true) {
@@ -35,23 +37,22 @@ struct BibleListView: View {
                 }
             }
             .navigationBarTitle("성경 선택", displayMode: .inline)
-        .navigationBarItems(trailing:
-            HStack(spacing: 20) {
-                Text("구약")
-                    .foregroundColor(self.isOld == "old" ? .black : .gray)
-                    .onTapGesture {
-                        print("구약 tapped")
-                        self.isOld = "old"
-                        UserDefaults.standard.set("old", forKey: "type")
-                        UserDefaults.standard.synchronize()
-                }
-                Text("신약")
-                    .foregroundColor(self.isOld == "old" ? .gray : .black)
-                    .onTapGesture {
-                        self.isOld = "new"
-                        UserDefaults.standard.set("new", forKey: "type")
-                        UserDefaults.standard.synchronize()
-                }
+            .navigationBarItems(trailing:
+                HStack(spacing: 20) {
+                    Text("구약")
+                        .foregroundColor(self.isOld == "old" ? .black : .gray)
+                        .onTapGesture {
+                            self.isOld = "old"
+                            UserDefaults.standard.set("old", forKey: "type")
+                            UserDefaults.standard.synchronize()
+                    }
+                    Text("신약")
+                        .foregroundColor(self.isOld == "old" ? .gray : .black)
+                        .onTapGesture {
+                            self.isOld = "new"
+                            UserDefaults.standard.set("new", forKey: "type")
+                            UserDefaults.standard.synchronize()
+                    }
             })
         }
     }

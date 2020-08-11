@@ -11,8 +11,8 @@ import SwiftUI
 struct currentVerseView: View {
     
     @ObservedObject private var verseVM = currentVerseViewModel()
-    
     @State private var show_modal: Bool = false
+    @State var isChanged: Bool = false
     
     var body: some View {
         NavigationView {
@@ -29,7 +29,6 @@ struct currentVerseView: View {
             }
             .onAppear() {
                 self.verseVM.apply(.onAppear)
-                print("mainView")
             }
             .navigationBarTitle(Text("\(verseVM.bibleName.name) \(self.verseVM.verses.first?.cnum ?? "0")장"))
             .navigationBarItems(trailing:
@@ -38,7 +37,23 @@ struct currentVerseView: View {
                         imageView(imageName: "square.grid.2x2")
                     }
                     imageView(imageName: "arrowtriangle.left.fill")
+                        .onTapGesture {
+                            if (Int(self.verseVM.verses.first!.cnum)! - 1 != 0) {
+                                let minus = Int(self.verseVM.verses.first!.cnum)! - 1
+                                UserDefaults.standard.set("\(minus)", forKey: "cnum")
+                                UserDefaults.standard.synchronize()
+                                self.verseVM.apply(.onAppear)
+                            }
+                    }
                     imageView(imageName: "arrowtriangle.right.fill")
+                    .onTapGesture {
+                        if (Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1) {
+                                let plus = Int(self.verseVM.verses.first!.cnum)! + 1
+                                UserDefaults.standard.set("\(plus)", forKey: "cnum")
+                                UserDefaults.standard.synchronize()
+                                self.verseVM.apply(.onAppear)
+                            }
+                    }
                 })
         }
         
@@ -46,6 +61,11 @@ struct currentVerseView: View {
     
 }
 
+struct currentVerseView_Previews: PreviewProvider {
+    static var previews: some View {
+        currentVerseView()
+    }
+}
 
 struct imageView : View {
     let imageName: String
@@ -55,9 +75,3 @@ struct imageView : View {
             .frame(width: 20, height: 20)
     }
 }
-
-//struct currentVerseView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        currentVerseView(verses: .init(), bibleName: "창세ㄱ")
-//    }
-//}

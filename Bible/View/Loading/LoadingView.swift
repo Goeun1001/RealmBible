@@ -22,7 +22,8 @@ struct LoadingView<Content>: View where Content: View {
                     .blur(radius: self.isShowing ? 3 : 0)
 
                 VStack {
-                    Text("Loading...")
+                    Text("데이터를 다운받고 있습니다...")
+                    Text("앱 최초 실행 시 로딩됩니다.")
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
                 .frame(width: geometry.size.width / 2,
@@ -36,4 +37,13 @@ struct LoadingView<Content>: View where Content: View {
         }
     }
 
+}
+
+struct LoadingView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoadingView(isShowing: .constant(true)) {
+            Text("asdf")
+        }.previewLayout(.sizeThatFits)
+//        .environment(\.sizeCategory, .extraLarge)
+    }
 }

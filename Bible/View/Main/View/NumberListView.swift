@@ -19,10 +19,6 @@ struct NumberListView: View {
     var name : String
     
     var body: some View {
-//        NavigationView {
-//        ForEach(1..<chapter_num, id: \.self) { number in
-//            numberGridView(text: String(number))
-//        }
         WaterfallGrid(1..<chapter_num + 1, id: \.self)  { number in
                 Text(String(number))
                 .font(.headline)
@@ -41,16 +37,15 @@ struct NumberListView: View {
                     self.dismissAll = true
                 }
         }.gridStyle(columns: 4, spacing: 10)
+            .padding(.top, 20)
             .padding(.leading, 20)
             .padding(.trailing, 20)
             .navigationBarTitle(name)
-//        }
-        
     }
 }
 
-//struct NumberListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NumberListView(dismissAll: false, bcode: 1, chapter_num: 30, name: "창세기")
-//    }
-//}
+struct NumberListView_Previews: PreviewProvider {
+    static var previews: some View {
+        NumberListView(dismissAll: .constant(false), bcode: 1, chapter_num: 30, name: "창세기")
+    }
+}

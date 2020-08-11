@@ -10,20 +10,29 @@ import SwiftUI
 
 struct LoadingBaseView: View {
     @EnvironmentObject var settings: LoadingSettings
+    @State private var hasTimeElapsed = false
     
     var body: some View {
         LoadingView(isShowing: .constant(true)) {
-            Text("Hi, please wait for load view")
+            Image("Stub")
+            .resizable()
+                .aspectRatio(contentMode: .fill)
             }
-            .onAppear() {
-                DataReader().setUpRealm()
-                UserDefaults.standard.set("GAE", forKey: "vcode")
-                UserDefaults.standard.set("1", forKey: "bcode")
-                UserDefaults.standard.set("1", forKey: "cnum")
-                UserDefaults.standard.set("old", forKey: "type")
-                UserDefaults.standard.set(true, forKey: "isLoaded")
-                UserDefaults.standard.synchronize()
-                self.settings.isLoaded = true
+            .onAppear(perform: delay)
+    }
+    private func delay() {
+        // Delay of 7.5 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.hasTimeElapsed = true
+            DataReader().setUpRealm()
+            UserDefaults.standard.set("GAE", forKey: "vcode")
+            UserDefaults.standard.set("1", forKey: "bcode")
+            UserDefaults.standard.set("1", forKey: "cnum")
+            UserDefaults.standard.set("old", forKey: "type")
+            UserDefaults.standard.set(true, forKey: "isLoaded")
+            UserDefaults.standard.set(true, forKey: "isChanged")
+            UserDefaults.standard.synchronize()
+            self.settings.isLoaded = true
         }
     }
     
