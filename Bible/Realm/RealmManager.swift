@@ -43,12 +43,12 @@ class RealmManager {
         .eraseToAnyPublisher()
     }
     
-    func getNamefrombcode(bcode: String) -> AnyPublisher<RealmBible, RealmError> {
+    func getNamefrombcode(vcode: String,bcode: String) -> AnyPublisher<RealmBible, RealmError> {
         var bible = RealmBible()
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmBible.self).filter{$0.bcode == Int(bcode)}
+            let result = realm.objects(RealmBible.self).filter{$0.vcode == vcode}.filter{$0.bcode == Int(bcode)}
             bible = result.first!
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -58,4 +58,75 @@ class RealmManager {
         .setFailureType(to: RealmError.self)
         .eraseToAnyPublisher()
     }
+    
+    func getGyodokALL() -> [RealmGyodok] {
+        
+        var gyodokList : [RealmGyodok] = []
+        
+        do {
+            let realm = try Realm()
+            let result = realm.objects(RealmGyodok.self).filter{$0.sojul == 1}
+            gyodokList = result.map{$0}
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return gyodokList
+    }
+    
+    func getGyodokFromJang(jang: Int) -> [RealmGyodok] {
+        
+        var gyodokList : [RealmGyodok] = []
+        
+        do {
+            let realm = try Realm()
+            let result = realm.objects(RealmGyodok.self).filter{$0.jang == jang}
+            gyodokList = result.map{$0}
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return gyodokList
+    }
+    
+    func getGyodokFromSearch(search: String) -> [RealmGyodok] {
+        
+        var gyodokList : [RealmGyodok] = []
+        
+        do {
+            let realm = try Realm()
+            let result = realm.objects(RealmGyodok.self).filter("title CONTAINS '\(search)'").filter{$0.sojul == 1}
+            gyodokList = result.map{$0}
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return gyodokList
+    }
+    
+    func getSongALL() -> [RealmSong] {
+        
+        var songList : [RealmSong] = []
+        
+        do {
+            let realm = try Realm()
+            let result = realm.objects(RealmSong.self)
+            songList = result.map{$0}
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return songList
+    }
+    
+    func getSongFromSearch(search: String) -> [RealmSong] {
+        let realSch = String(search.components(separatedBy: ["장"]).joined())
+        var songList : [RealmSong] = []
+        
+        do {
+            let realm = try Realm()
+            let result = realm.objects(RealmSong.self).filter("title CONTAINS '\(realSch)' OR number CONTAINS '\(realSch)'")
+            songList = result.map{$0}
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return songList
+    }
+    
 }

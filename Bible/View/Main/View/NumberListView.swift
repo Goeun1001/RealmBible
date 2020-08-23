@@ -31,6 +31,7 @@ struct NumberListView: View {
                 ).onTapGesture {
                     UserDefaults.standard.set("\(self.bcode)", forKey: "bcode")
                     UserDefaults.standard.set("\(number)", forKey: "cnum")
+                    UserDefaults.standard.set(true, forKey: "isChanged")
                     UserDefaults.standard.synchronize()
                     print(number)
                     self.presentationMode.wrappedValue.dismiss()

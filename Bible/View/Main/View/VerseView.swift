@@ -14,7 +14,8 @@ struct VerseView: View {
     @State private var show_modal: Bool = false
     
     @State private var offset = CGSize.zero
-    @State private var float = false
+    @State private var float = true
+    @State var inline = false
     
     var body: some View {
         NavigationView {
@@ -35,37 +36,74 @@ struct VerseView: View {
                     DragGesture()
                         .onChanged { gesture in
                             self.offset = gesture.translation
-                            print(self.offset.height)
-                            if self.offset.height > 0 {
+                            if self.offset.height >= 0 {
                                 self.float = true
                             } else if (self.offset.height < 0) {
                                 self.float = false
-//                                self.offset = .zero
                             }
-                    }
-                        
-                    .onEnded { _ in
-                        print("isEnded")
-                        
                     }
                 )
                 
+                // MARK: Floating Bar
+                
                 if float {
-                    FloatingTabbar()
-                        .padding(.leading, 10)
-                        .padding(.trailing, 10)
+                    HStack(alignment: .center) {
+                        NavigationLink(destination: SwipeBar()) {
+                            barView(imageName: "LeftBook", text: "통독표")
+                                .padding(.leading, 20)
+                        }.simultaneousGesture(TapGesture().onEnded{
+                            self.inline = true
+                        })
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: SongListView()) {
+                            barView(imageName: "MusicBook", text: "찬송가")
+                        }
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: GyodokListView()) {
+                            barView(imageName: "Book", text: "교독문")
+                        }
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: CCMVCtoUI()) {
+                            barView(imageName: "CCM", text: "CCM")
+                        }.simultaneousGesture(TapGesture().onEnded{
+                            self.inline = true
+                        })
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: SettingView()) {
+                            barView(imageName: "Settings", text: "설정")
+                                .padding(.trailing, 20)
+                        }
+                        
+                    }.padding(.top, 10)
+                        .padding(.bottom, 43)
+                        .background(Color("Gray"))
+                        .cornerRadius(25)
+                        .shadow(radius: 10)
                 }
+            }.edgesIgnoringSafeArea(.bottom)
+                .onAppear() {
+                    if (UserDefaults.standard.value(forKey: "isChanged") as! Bool == true) {
+                        self.verseVM.apply(.onAppear)
+                        UserDefaults.standard.set(false, forKey: "isChanged")
+                        UserDefaults.standard.synchronize()
+                    }
+                    self.inline = false
             }
-            .onAppear() {
-                self.verseVM.apply(.onAppear)
-            }
-            .navigationBarTitle(Text("\(verseVM.bibleName.name) \(self.verseVM.verses.first?.cnum ?? "0")장"))
+            .navigationBarTitle(Text("\(self.verseVM.bibleName.name) \(self.verseVM.verses.first?.cnum ?? "0")장"), displayMode: inline ? .inline : .automatic)
             .navigationBarItems(trailing:
                 HStack(spacing: 20) {
                     NavigationLink(destination: BibleListView()) {
-                        imageView(imageName: "square.grid.2x2")
+                        imageView(imageName: "slider.horizontal.3")
                     }
-                    imageView(imageName: "arrowtriangle.left.fill")
+                    imageView(imageName: "arrowtriangle.left")
                         .onTapGesture {
                             if (Int(self.verseVM.verses.first!.cnum)! - 1 != 0) {
                                 let minus = Int(self.verseVM.verses.first!.cnum)! - 1
@@ -74,7 +112,7 @@ struct VerseView: View {
                                 self.verseVM.apply(.onAppear)
                             }
                     }
-                    imageView(imageName: "arrowtriangle.right.fill")
+                    imageView(imageName: "arrowtriangle.right")
                         .onTapGesture {
                             if (Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1) {
                                 let plus = Int(self.verseVM.verses.first!.cnum)! + 1
@@ -84,7 +122,7 @@ struct VerseView: View {
                             }
                     }
             })
-        }
+        }.accentColor(.black)
         
     }
     
@@ -102,5 +140,22 @@ struct imageView : View {
         Image(systemName: "\(imageName)")
             .resizable()
             .frame(width: 20, height: 20)
+            .foregroundColor(.black)
+    }
+}
+
+struct barView: View {
+    let imageName: String
+    let text: String
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            Image(imageName)
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.black)
+            Text(text)
+                .foregroundColor(.black)
+        }
     }
 }

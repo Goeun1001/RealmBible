@@ -28,24 +28,24 @@ class RealmVerse: Object {
 }
 
 class RealmDaily: Object {
-    dynamic var id = 0
-    dynamic var bible = ""
-    dynamic var content = ""
+    @objc dynamic var id = 0
+    @objc dynamic var bible = ""
+    @objc dynamic var content = ""
 }
 
 class RealmGyodok: Object {
-    dynamic var id = 0
-    dynamic var jang = 0
-    dynamic var title = ""
-    dynamic var sojul = 0
-    dynamic var note = ""
+    @objc dynamic var id = 0
+    @objc dynamic var jang = 0
+    @objc dynamic var title = ""
+    @objc dynamic var sojul = 0
+    @objc dynamic var note = ""
 }
 
 class RealmSong: Object {
-    dynamic var id = 0
-    dynamic var version = ""
-    dynamic var type = ""
-    dynamic var number = 0
-    dynamic var title = ""
+    @objc dynamic var id = 0
+    @objc dynamic var version = ""
+    @objc dynamic var type = ""
+    @objc dynamic var number = ""
+    @objc dynamic var title = ""
 }
 

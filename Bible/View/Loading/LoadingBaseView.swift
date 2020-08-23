@@ -13,7 +13,7 @@ struct LoadingBaseView: View {
     @State private var hasTimeElapsed = false
     
     var body: some View {
-        LoadingView(isShowing: .constant(true)) {
+        isLoadingView(isShowing: .constant(true)) {
             Image("Stub")
             .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -31,6 +31,7 @@ struct LoadingBaseView: View {
             UserDefaults.standard.set("old", forKey: "type")
             UserDefaults.standard.set(true, forKey: "isLoaded")
             UserDefaults.standard.set(true, forKey: "isChanged")
+            UserDefaults.standard.set(0, forKey: "selectedIndex")
             UserDefaults.standard.synchronize()
             self.settings.isLoaded = true
         }

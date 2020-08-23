@@ -50,6 +50,8 @@ class VerseViewModel: ObservableObject, ViewModelType {
         self.realmManager = realmManager
         bindInputs()
         bindOutputs()
+        UserDefaults.standard.set(true, forKey: "isChanged")
+        UserDefaults.standard.synchronize()
     }
     
     private func bindInputs() {
@@ -65,7 +67,7 @@ class VerseViewModel: ObservableObject, ViewModelType {
         
         let bibleResponsePublisher = onAppearSubject
             .flatMap { [realmManager] _ in
-                realmManager.getNamefrombcode(bcode: self.bcode)
+                realmManager.getNamefrombcode(vcode: self.vcode, bcode: self.bcode)
                     .catch { [weak self] error -> Empty<RealmBible, Never> in
                         self?.errorSubject.send(error)
                         return .init()

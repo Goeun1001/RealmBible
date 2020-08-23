@@ -215,8 +215,8 @@ class DataReader {
             let type = String(cString: sqlite3_column_text(stmt, 2))
             realmSongItem.type = String(type)
             
-            let number = sqlite3_column_int(stmt, 3)
-            realmSongItem.number = Int(number)
+            let number = String(cString: sqlite3_column_text(stmt, 3))
+            realmSongItem.number = String(number)
             
             let title = String(cString: sqlite3_column_text(stmt, 4))
             realmSongItem.title = String(title)
@@ -235,6 +235,6 @@ extension DataReader {
         readVerses("SELECT * FROM verses")
         readDaily("SELECT * FROM todaybible")
         readSong("SELECT * FROM hymns")
-        readGyodok("SELECT * FROM gyodok where sojul = 1")
+        readGyodok("SELECT * FROM gyodok")
     }
 }
