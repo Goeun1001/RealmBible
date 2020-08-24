@@ -39,19 +39,22 @@ struct SettingView: View {
                         .pickerStyle(SegmentedPickerStyle())
                         .frame(width: 90)
                 }
-                Text("북마크함")
+                NavigationLink(destination: BookmarkedView()) {
+                    Text("북마크함")
+                }
             }
             Section(header: Text("통독표")) {
                 Text("통독표 초기화").onTapGesture {
                     self.showingAlert = true
                 }.alert(isPresented: $showingAlert) { () -> Alert in
-                    Alert(title: Text("iOSDevCenters"), message: Text("This Tutorial for SwiftUI Alert."), primaryButton: .default(Text("Okay"), action: {
+                    Alert(title: Text("통독표를 초기화하시겠습니까?"), primaryButton: .default(Text("YES"), action: {
                         SecondRealmManager.shared.changeAllDelete(isRead: false)
-                    }), secondaryButton: .default(Text("Dismiss")))
+                    }), secondaryButton: .cancel())
                 }
             }
         }.listStyle(GroupedListStyle())
             .environment(\.horizontalSizeClass, .regular)
+        .navigationBarTitle("설정")
     }
 }
 

@@ -37,6 +37,7 @@ class VerseViewModel: ObservableObject, ViewModelType {
     
     // MARK: Output
     
+    @Published var markedverses = [RealmVerse]()
     @Published var verses = [RealmVerse]()
     @Published var bibleName = RealmBible()
     
@@ -105,6 +106,24 @@ class VerseViewModel: ObservableObject, ViewModelType {
             bibleNameStream
         ]
         
+    }
+    
+    func LikeChange(id: Int, bool: Bool) {
+        RealmManager.shared.writeBookmarked(id: id, bool: bool)
+        self.verses = RealmManager.shared.getVerse(vcode: self.vcode, bcode: self.bcode, cnum: self.cnum)
+    }
+    
+    func getBookmarked() {
+        UserDefaults.standard.synchronize()
+        self.vcode = UserDefaults.standard.value(forKey: "vcode") as! String
+        self.markedverses = RealmManager.shared.getBookmarkedVerse(vcode: self.vcode)
+    }
+    
+    func LikeChange(id: Int) {
+        UserDefaults.standard.synchronize()
+        self.vcode = UserDefaults.standard.value(forKey: "vcode") as! String
+        RealmManager.shared.writeBookmarked(id: id, bool: false)
+        self.markedverses = RealmManager.shared.getBookmarkedVerse(vcode: self.vcode)
     }
     
 }

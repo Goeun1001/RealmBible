@@ -16,9 +16,7 @@ struct VerseView: View {
     @State private var offset = CGSize.zero
     @State private var float = true
     @State var inline = false
-    @State var filename = "like"
-    @State var verseID = 0
-    @State var doubleTapped = false
+    @State var isBookmarked = false
     
     var body: some View {
         NavigationView {
@@ -37,13 +35,17 @@ struct VerseView: View {
                                 
                                 Spacer()
                                 
-                                if self.doubleTapped && verse.id == self.verseID {
+                                if verse.bookmarked == 1 {
                                     LikeLottie(filename: "like")
                                         .frame(width: 25, height: 25)
                                 }
                             }.onTapGesture(count: 2) {
-                                self.doubleTapped.toggle()
-                                self.verseID = verse.id
+                                if verse.bookmarked == 1 {
+                                    self.isBookmarked = false
+                                } else {
+                                    self.isBookmarked = true
+                                }
+                                self.verseVM.LikeChange(id: verse.id, bool: self.isBookmarked)
                             }
                         }
                     }

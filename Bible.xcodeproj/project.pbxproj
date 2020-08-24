@@ -26,8 +26,9 @@
 		D905A80324F3EF2C00F7A83F /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A80224F3EF2C00F7A83F /* LottieView.swift */; };
 		D905A80524F3F01E00F7A83F /* bible.json in Resources */ = {isa = PBXBuildFile; fileRef = D905A80424F3F01E00F7A83F /* bible.json */; };
 		D905A80724F3F08A00F7A83F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A80624F3F08A00F7A83F /* SplashView.swift */; };
-		D905A80B24F3F2DD00F7A83F /* LikeLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A80A24F3F2DD00F7A83F /* LikeLottie.swift */; };
 		D905A80E24F3F37400F7A83F /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = D905A80D24F3F37400F7A83F /* like.json */; };
+		D905A81024F3FFA000F7A83F /* LikeLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A80F24F3FFA000F7A83F /* LikeLottie.swift */; };
+		D905A81224F4053700F7A83F /* BookmarkedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A81124F4053700F7A83F /* BookmarkedView.swift */; };
 		D92D33D224EB3E7D00545047 /* GyodokDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33D124EB3E7D00545047 /* GyodokDetailView.swift */; };
 		D92D33D424EB7E2500545047 /* SongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33D324EB7E2500545047 /* SongListView.swift */; };
 		D92D33D624EB7E3100545047 /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33D524EB7E3100545047 /* SongListViewModel.swift */; };
@@ -137,8 +138,9 @@
 		D905A80224F3EF2C00F7A83F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D905A80424F3F01E00F7A83F /* bible.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bible.json; sourceTree = "<group>"; };
 		D905A80624F3F08A00F7A83F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		D905A80A24F3F2DD00F7A83F /* LikeLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeLottie.swift; sourceTree = "<group>"; };
 		D905A80D24F3F37400F7A83F /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
+		D905A80F24F3FFA000F7A83F /* LikeLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeLottie.swift; sourceTree = "<group>"; };
+		D905A81124F4053700F7A83F /* BookmarkedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedView.swift; sourceTree = "<group>"; };
 		D92D33D124EB3E7D00545047 /* GyodokDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyodokDetailView.swift; sourceTree = "<group>"; };
 		D92D33D324EB7E2500545047 /* SongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListView.swift; sourceTree = "<group>"; };
 		D92D33D524EB7E3100545047 /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
@@ -364,8 +366,8 @@
 			children = (
 				D905A80C24F3F35700F7A83F /* json */,
 				D905A80224F3EF2C00F7A83F /* LottieView.swift */,
-				D905A80A24F3F2DD00F7A83F /* LikeLottie.swift */,
 				D905A80624F3F08A00F7A83F /* SplashView.swift */,
+				D905A80F24F3FFA000F7A83F /* LikeLottie.swift */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -392,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				D92D33DD24EBB42600545047 /* SettingView.swift */,
+				D905A81124F4053700F7A83F /* BookmarkedView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -855,7 +858,7 @@
 				D9DD7DDC24F14A64005F2A92 /* RadioPlayer.swift in Sources */,
 				D9DD7DD224F14A64005F2A92 /* UnwindSegue.swift in Sources */,
 				D905A80024F3AC2D00F7A83F /* Bible.swift in Sources */,
-				D905A80B24F3F2DD00F7A83F /* LikeLottie.swift in Sources */,
+				D905A81024F3FFA000F7A83F /* LikeLottie.swift in Sources */,
 				D92D33D824EB9AB100545047 /* Constants.swift in Sources */,
 				D9B8D00124DAB5D800890693 /* DataReader.swift in Sources */,
 				D9DD7DBA24F14A64005F2A92 /* KeyboardLayoutConstraint.swift in Sources */,
@@ -912,6 +915,7 @@
 				D9DD7DD124F14A64005F2A92 /* SpringAnimation.swift in Sources */,
 				D905A80324F3EF2C00F7A83F /* LottieView.swift in Sources */,
 				D9C332BA24E1746C00968023 /* isLoadingView.swift in Sources */,
+				D905A81224F4053700F7A83F /* BookmarkedView.swift in Sources */,
 				D9DD7DDE24F14A64005F2A92 /* StationTableViewCell.swift in Sources */,
 				D9A9DF9024E2C79B0049446E /* GyodokListView.swift in Sources */,
 				D92D33D224EB3E7D00545047 /* GyodokDetailView.swift in Sources */,

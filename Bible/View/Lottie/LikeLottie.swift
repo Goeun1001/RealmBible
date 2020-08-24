@@ -49,6 +49,7 @@ struct LikeLottie: UIViewRepresentable {
       animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
     ])
     
+    //애니메이션이 계속 반복되게합니다.
     animationView.play()
     return view
   }
