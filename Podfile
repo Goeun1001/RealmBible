@@ -8,5 +8,6 @@ target 'Bible' do
   # Pods for Bible
 pod 'RealmSwift'
 pod 'WaterfallGrid'
+pod 'lottie-ios'
 
 end

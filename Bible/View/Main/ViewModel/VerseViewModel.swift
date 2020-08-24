@@ -79,8 +79,8 @@ class VerseViewModel: ObservableObject, ViewModelType {
             .subscribe(responseSubject)
         
         let bibleResponseStream = bibleResponsePublisher
-        .share()
-        .subscribe(bibleResponseSubject)
+            .share()
+            .subscribe(bibleResponseSubject)
         
         cancellables += [
             responseStream,
@@ -95,10 +95,10 @@ class VerseViewModel: ObservableObject, ViewModelType {
             .assign(to: \.verses, on: self)
         
         let bibleNameStream = bibleResponseSubject
-        .map { $0 }
-        .assign(to: \.bibleName, on: self)
+            .map { $0 }
+            .assign(to: \.bibleName, on: self)
         
-//        print("bindOutputs.assign")
+        //        print("bindOutputs.assign")
         
         cancellables += [
             repositoriesStream,
@@ -106,5 +106,5 @@ class VerseViewModel: ObservableObject, ViewModelType {
         ]
         
     }
-
+    
 }

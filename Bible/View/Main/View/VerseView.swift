@@ -16,20 +16,35 @@ struct VerseView: View {
     @State private var offset = CGSize.zero
     @State private var float = true
     @State var inline = false
+    @State var filename = "like"
+    @State var verseID = 0
+    @State var doubleTapped = false
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
                 GeometryReader { _ in
-                    List(self.verseVM.verses, id:\.id) { verse in
-                        HStack {
-                            VStack {
-                                Text(verse.vnum)
-                                    .font(.custom("NanumSquareL", size: 20))
+                    List {
+                        ForEach(self.verseVM.verses, id:\.id) { verse in
+                            HStack {
+                                VStack {
+                                    Text(verse.vnum)
+                                        .font(.custom("NanumSquareL", size: 20))
+                                    Spacer()
+                                }
+                                Text(verse.content)
+                                    .font(.custom("NanumSquareB", size: 18))
+                                
                                 Spacer()
+                                
+                                if self.doubleTapped && verse.id == self.verseID {
+                                    LikeLottie(filename: "like")
+                                        .frame(width: 25, height: 25)
+                                }
+                            }.onTapGesture(count: 2) {
+                                self.doubleTapped.toggle()
+                                self.verseID = verse.id
                             }
-                            Text(verse.content)
-                                .font(.custom("NanumSquareB", size: 18))
                         }
                     }
                 }.gesture(
@@ -45,10 +60,9 @@ struct VerseView: View {
                 )
                 
                 // MARK: Floating Bar
-                
                 if float {
                     HStack(alignment: .center) {
-                        NavigationLink(destination: SwipeBar()) {
+                        NavigationLink(destination: CheckListToUI()) {
                             barView(imageName: "LeftBook", text: "통독표")
                                 .padding(.leading, 20)
                         }.simultaneousGesture(TapGesture().onEnded{

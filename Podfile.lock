@@ -1,26 +1,30 @@
 PODS:
-  - Realm (5.3.3):
-    - Realm/Headers (= 5.3.3)
-  - Realm/Headers (5.3.3)
-  - RealmSwift (5.3.3):
-    - Realm (= 5.3.3)
+  - lottie-ios (3.1.8)
+  - Realm (5.3.5):
+    - Realm/Headers (= 5.3.5)
+  - Realm/Headers (5.3.5)
+  - RealmSwift (5.3.5):
+    - Realm (= 5.3.5)
   - WaterfallGrid (0.4.0)
 
 DEPENDENCIES:
+  - lottie-ios
   - RealmSwift
   - WaterfallGrid
 
 SPEC REPOS:
   trunk:
+    - lottie-ios
     - Realm
     - RealmSwift
     - WaterfallGrid
 
 SPEC CHECKSUMS:
-  Realm: 2d57ea355bf8ca2a0964d6bfb38d28d7ff2addf6
-  RealmSwift: 0a709536ecea30eea1d3c514f6ade2ed078dee3c
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  Realm: 2b52fcc86fc0ed3d75a56ac0eb1e73c4f1a60e16
+  RealmSwift: a6ea2ea561039fc3833c08dec81371a9a3bb5ca6
   WaterfallGrid: 568881d69470c0ffe635732dfafd859db1365989
 
-PODFILE CHECKSUM: 82ae447c857b287c235f17e6e00fc82a308f8f74
+PODFILE CHECKSUM: 3c8b753da3bd58cb1b4c2ba0fb9c9607501f29a6
 
 COCOAPODS: 1.8.4

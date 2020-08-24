@@ -11,6 +11,7 @@ import SwiftUI
 struct SettingView: View {
     @State private var select = UserDefaults.standard.value(forKey: "selectedIndex") as! Int
     @State private var optionsTitle = ["한", "영"]
+    @State private var showingAlert = false
     
     var body: some View {
         List {
@@ -29,20 +30,28 @@ struct SettingView: View {
                             UserDefaults.standard.set(0, forKey: "selectedIndex")
                             UserDefaults.standard.synchronize()
                         } else {
-                           UserDefaults.standard.set("NIV", forKey: "vcode")
+                            UserDefaults.standard.set("NIV", forKey: "vcode")
                             UserDefaults.standard.set(true, forKey: "isChanged")
                             UserDefaults.standard.set(1, forKey: "selectedIndex")
                             UserDefaults.standard.synchronize()
                         }
                     })
-                    .pickerStyle(SegmentedPickerStyle())
+                        .pickerStyle(SegmentedPickerStyle())
                         .frame(width: 90)
                 }
                 Text("북마크함")
-                Text("통독표 초기화")
+            }
+            Section(header: Text("통독표")) {
+                Text("통독표 초기화").onTapGesture {
+                    self.showingAlert = true
+                }.alert(isPresented: $showingAlert) { () -> Alert in
+                    Alert(title: Text("iOSDevCenters"), message: Text("This Tutorial for SwiftUI Alert."), primaryButton: .default(Text("Okay"), action: {
+                        SecondRealmManager.shared.changeAllDelete(isRead: false)
+                    }), secondaryButton: .default(Text("Dismiss")))
+                }
             }
         }.listStyle(GroupedListStyle())
-        .environment(\.horizontalSizeClass, .regular)
+            .environment(\.horizontalSizeClass, .regular)
     }
 }
 

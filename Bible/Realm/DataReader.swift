@@ -55,7 +55,7 @@ class DataReader {
             }
         }
     }
-
+    
     func readVerses(_ queryString: String) {
         var db: OpaquePointer?
         var stmt:OpaquePointer?
@@ -104,7 +104,7 @@ class DataReader {
         }
         
     }
-
+    
     func readDaily(_ queryString: String) {
         var db: OpaquePointer?
         
@@ -142,7 +142,7 @@ class DataReader {
         }
         
     }
-
+    
     func readGyodok(_ queryString: String) {
         var db: OpaquePointer?
         var stmt:OpaquePointer?
@@ -185,7 +185,7 @@ class DataReader {
         }
         
     }
-
+    
     func readSong(_ queryString: String){
         var db: OpaquePointer?
         var stmt:OpaquePointer?

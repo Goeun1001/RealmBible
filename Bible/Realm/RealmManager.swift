@@ -14,6 +14,8 @@ class RealmManager {
     
     static let shared = RealmManager()
     
+    // MARK: Bible
+    
     func getBibleLists(vcode: String, type: String) -> [RealmBible] {
         var bibleList : [RealmBible] = []
         
@@ -59,6 +61,8 @@ class RealmManager {
         .eraseToAnyPublisher()
     }
     
+    //MARK: Gyodok
+    
     func getGyodokALL() -> [RealmGyodok] {
         
         var gyodokList : [RealmGyodok] = []
@@ -101,6 +105,8 @@ class RealmManager {
         return gyodokList
     }
     
+    // MARK: Song
+    
     func getSongALL() -> [RealmSong] {
         
         var songList : [RealmSong] = []
@@ -118,7 +124,6 @@ class RealmManager {
     func getSongFromSearch(search: String) -> [RealmSong] {
         let realSch = String(search.components(separatedBy: ["장"]).joined())
         var songList : [RealmSong] = []
-        
         do {
             let realm = try Realm()
             let result = realm.objects(RealmSong.self).filter("title CONTAINS '\(realSch)' OR number CONTAINS '\(realSch)'")
@@ -128,5 +133,4 @@ class RealmManager {
         }
         return songList
     }
-    
 }
