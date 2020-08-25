@@ -13,12 +13,11 @@ struct SongDetailView: View {
     var name: String
     
     var realNum : String {
-        getNumber(number: number)
+        DateConverter().getNumber(number: number)
     }
     
     var body: some View {
         ScrollView {
-            
             VStack(spacing: 10) {
                 Text("\(number)장 \(name)")
                     .font(.title)

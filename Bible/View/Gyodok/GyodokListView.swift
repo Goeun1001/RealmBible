@@ -23,7 +23,6 @@ struct GyodokListView: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField("Search", text: $search, onEditingChanged: { changed in
-                    print("Username onEditingChanged - \(changed)")
                     if changed == false {
                         if self.search == "" {
                             self.isSearching = false

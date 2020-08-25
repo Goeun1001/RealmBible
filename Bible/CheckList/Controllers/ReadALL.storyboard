@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="77D-36-kO3">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="erX-eL-XCw">
-                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="184" width="375" height="545"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
@@ -30,7 +30,7 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vHT-Zo-rBC">
-                                <rect key="frame" x="16" y="94" width="343" height="32"/>
+                                <rect key="frame" x="16" y="138" width="343" height="32"/>
                                 <segments>
                                     <segment title="Daily"/>
                                     <segment title="구약"/>
@@ -42,12 +42,12 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHT-9u-h5U">
-                                <rect key="frame" x="325" y="54" width="30" height="30"/>
+                                <rect key="frame" x="325" y="98" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="q4h-hY-Pm0"/>
                                     <constraint firstAttribute="height" constant="30" id="uWb-O8-8Tn"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="setting"/>
+                                <state key="normal" title="Button" image="Settings"/>
                                 <connections>
                                     <segue destination="GvL-Us-S6Q" kind="show" identifier="Setting" id="BhR-Qq-g0W"/>
                                 </connections>
@@ -68,7 +68,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="K3V-aY-W8F"/>
+                    <navigationItem key="navigationItem" id="K3V-aY-W8F">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="6Z0-sE-Wr2"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categorySegmentedControl" destination="vHT-Zo-rBC" id="g94-rm-GUF"/>
@@ -77,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999.20000000000005" y="64.285714285714292"/>
+            <point key="canvasLocation" x="1941.5999999999999" y="64.285714285714292"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="ngG-xl-2N9">
@@ -88,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qkm-Oo-mul">
-                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lXo-2k-2X0">
                                     <size key="itemSize" width="102" height="67"/>
@@ -129,7 +131,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLN-Wt-sNL">
-                                            <rect key="frame" x="166.66666666666666" y="24" width="42" height="19"/>
+                                            <rect key="frame" x="166.66666666666666" y="23.666666666666671" width="42" height="20"/>
                                             <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -158,16 +160,35 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gnM-Ow-rPN"/>
                     </view>
+                    <navigationItem key="navigationItem" id="liQ-XB-cLw"/>
                     <connections>
                         <outlet property="collectionView" destination="qkm-Oo-mul" id="MOi-mz-RSK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzz-QH-na4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="69.458128078817737"/>
+            <point key="canvasLocation" x="2642.4000000000001" y="69.458128078817737"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wck-dX-dpH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="77D-36-kO3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hDy-zM-CCs">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sOD-fM-N2B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acJ-0R-j35" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999.20000000000005" y="64.285714285714292"/>
         </scene>
     </scenes>
     <resources>
-        <image name="setting" width="64" height="64"/>
+        <image name="Settings" width="512" height="512"/>
     </resources>
 </document>

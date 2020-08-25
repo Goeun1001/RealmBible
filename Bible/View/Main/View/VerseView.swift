@@ -99,10 +99,8 @@ struct VerseView: View {
                         }
                         
                     }.padding(.top, 10)
-                        .padding(.bottom, 43)
-                        .background(Color("Gray"))
-                        .cornerRadius(25)
-                        .shadow(radius: 10)
+                        .padding(.bottom, UIFrame.UIHeight / 25)
+                         .background(RoundedCorners(color: Color("Gray"), tl: 25, tr: 25, bl: 0, br: 0))
                 }
             }.edgesIgnoringSafeArea(.bottom)
                 .onAppear() {
@@ -117,9 +115,9 @@ struct VerseView: View {
             .navigationBarItems(trailing:
                 HStack(spacing: 20) {
                     NavigationLink(destination: BibleListView()) {
-                        imageView(imageName: "slider.horizontal.3")
+                        imageView(imageName: "burger", isSystem: false)
                     }
-                    imageView(imageName: "arrowtriangle.left")
+                    imageView(imageName: "arrowtriangle.left", isSystem: true)
                         .onTapGesture {
                             if (Int(self.verseVM.verses.first!.cnum)! - 1 != 0) {
                                 let minus = Int(self.verseVM.verses.first!.cnum)! - 1
@@ -128,7 +126,7 @@ struct VerseView: View {
                                 self.verseVM.apply(.onAppear)
                             }
                     }
-                    imageView(imageName: "arrowtriangle.right")
+                    imageView(imageName: "arrowtriangle.right", isSystem: true)
                         .onTapGesture {
                             if (Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1) {
                                 let plus = Int(self.verseVM.verses.first!.cnum)! + 1
@@ -152,11 +150,21 @@ struct currentVerseView_Previews: PreviewProvider {
 
 struct imageView : View {
     let imageName: String
+    let isSystem: Bool
     var body: some View {
-        Image(systemName: "\(imageName)")
-            .resizable()
-            .frame(width: 20, height: 20)
-            .foregroundColor(.black)
+        VStack {
+            if isSystem {
+                Image(systemName: "\(imageName)")
+                .resizable()
+                .frame(width: 20, height: 20)
+                .foregroundColor(.black)
+            } else {
+                Image(imageName)
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.black)
+            }
+        }
     }
 }
 
