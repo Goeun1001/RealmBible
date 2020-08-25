@@ -16,8 +16,22 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+  desc "Push a new release build to the App Store"
+  lane :release do
+    match(type: "appstore")
+    build_app(workspace: "iOS-todoApp.xcworkspace", scheme: "iOS-todoApp")
+    upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+  end
+  lane :increase_build_number do
+    identifier = get_info_plist_value(path: "./iOS-todoApp/Info.plist", key: "CFBundleVersion") 
+    new_identifier = (identifier.to_i + 1).to_s
+    set_info_plist_value(path: "./iOS-todoApp/Info.plist", key: "CFBundleVersion", value: new_identifier)
+    puts("버전 넘버 " + identifier + "가 " + new_identifier + "로 변경 되었습니다.")
+  end
+
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+    capture_screenshots(workspace: "Bible.xcworkspace", scheme: "Bible")
+    upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
   end
 end

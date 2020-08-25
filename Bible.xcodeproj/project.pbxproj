@@ -30,6 +30,10 @@
 		D905A81024F3FFA000F7A83F /* LikeLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A80F24F3FFA000F7A83F /* LikeLottie.swift */; };
 		D905A81224F4053700F7A83F /* BookmarkedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A81124F4053700F7A83F /* BookmarkedView.swift */; };
 		D905A81624F4C05100F7A83F /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A81524F4C05100F7A83F /* RoundedCorners.swift */; };
+		D905A81924F4D0F900F7A83F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A81824F4D0F900F7A83F /* OnboardingView.swift */; };
+		D905A81B24F4D11100F7A83F /* Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A81A24F4D11100F7A83F /* Subview.swift */; };
+		D905A81D24F4D12C00F7A83F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A81C24F4D12C00F7A83F /* PageViewController.swift */; };
+		D905A81F24F4D15000F7A83F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A81E24F4D15000F7A83F /* PageControl.swift */; };
 		D92D33D224EB3E7D00545047 /* GyodokDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33D124EB3E7D00545047 /* GyodokDetailView.swift */; };
 		D92D33D424EB7E2500545047 /* SongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33D324EB7E2500545047 /* SongListView.swift */; };
 		D92D33D624EB7E3100545047 /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33D524EB7E3100545047 /* SongListViewModel.swift */; };
@@ -143,6 +147,10 @@
 		D905A80F24F3FFA000F7A83F /* LikeLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeLottie.swift; sourceTree = "<group>"; };
 		D905A81124F4053700F7A83F /* BookmarkedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedView.swift; sourceTree = "<group>"; };
 		D905A81524F4C05100F7A83F /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		D905A81824F4D0F900F7A83F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D905A81A24F4D11100F7A83F /* Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subview.swift; sourceTree = "<group>"; };
+		D905A81C24F4D12C00F7A83F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		D905A81E24F4D15000F7A83F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		D92D33D124EB3E7D00545047 /* GyodokDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyodokDetailView.swift; sourceTree = "<group>"; };
 		D92D33D324EB7E2500545047 /* SongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListView.swift; sourceTree = "<group>"; };
 		D92D33D524EB7E3100545047 /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
@@ -383,6 +391,17 @@
 			path = json;
 			sourceTree = "<group>";
 		};
+		D905A81724F4D0E800F7A83F /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				D905A81824F4D0F900F7A83F /* OnboardingView.swift */,
+				D905A81A24F4D11100F7A83F /* Subview.swift */,
+				D905A81C24F4D12C00F7A83F /* PageViewController.swift */,
+				D905A81E24F4D15000F7A83F /* PageControl.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
 		D92BAD9C24E2A2B800A28398 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +518,7 @@
 		D9B8D00724DAB8E400890693 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D905A81724F4D0E800F7A83F /* PageView */,
 				D92BAD9C24E2A2B800A28398 /* Extension */,
 				D92D33D024EB3D5600545047 /* Setting */,
 				D9C332B824E1745F00968023 /* Loading */,
@@ -880,6 +900,7 @@
 				D9DD7DC824F14A64005F2A92 /* DesignableButton.swift in Sources */,
 				D9C332AE24E15E6D00968023 /* VerseViewModel.swift in Sources */,
 				D9DD7DCF24F14A64005F2A92 /* DesignableTextView.swift in Sources */,
+				D905A81F24F4D15000F7A83F /* PageControl.swift in Sources */,
 				D9DD7DB324F14A64005F2A92 /* SwiftRadio-Settings.swift in Sources */,
 				D905A7D824F3AAEE00F7A83F /* BookTableViewCell.swift in Sources */,
 				D9DD7DE224F14A64005F2A92 /* RadioStation.swift in Sources */,
@@ -889,6 +910,7 @@
 				D9DD7DC524F14A64005F2A92 /* SpringTextView.swift in Sources */,
 				D9DD7DCE24F14A64005F2A92 /* SpringLabel.swift in Sources */,
 				D9C332B724E1741D00968023 /* ActivityIndicator.swift in Sources */,
+				D905A81B24F4D11100F7A83F /* Subview.swift in Sources */,
 				D9DD7DC424F14A64005F2A92 /* SpringButton.swift in Sources */,
 				D9E0881D24EBF99600276FAE /* pinch.swift in Sources */,
 				D905A81624F4C05100F7A83F /* RoundedCorners.swift in Sources */,
@@ -901,9 +923,11 @@
 				D9DD7DC724F14A64005F2A92 /* SpringView.swift in Sources */,
 				D905A7E524F3AB2400F7A83F /* SettingCollectionReusableView.swift in Sources */,
 				D9C332B224E15F2700968023 /* VerseView.swift in Sources */,
+				D905A81D24F4D12C00F7A83F /* PageViewController.swift in Sources */,
 				D98175A224E25FD80013CFC6 /* RealmError.swift in Sources */,
 				D9DD7DBC24F14A64005F2A92 /* TransitionZoom.swift in Sources */,
 				D9DD7DD824F14A64005F2A92 /* StationsViewController.swift in Sources */,
+				D905A81924F4D0F900F7A83F /* OnboardingView.swift in Sources */,
 				D9DD7DE624F14A64005F2A92 /* UIImage+DropShadow.swift in Sources */,
 				D9DD7DBD24F14A64005F2A92 /* ImageLoader.swift in Sources */,
 				D9DD7DBF24F14A64005F2A92 /* SpringImageView.swift in Sources */,

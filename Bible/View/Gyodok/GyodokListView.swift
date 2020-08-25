@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct GyodokListView: View {
-    
     @ObservedObject private var gyodokListVM = GyodokListViewModel()
     @State var search: String = ""
     @State var isSearching = false

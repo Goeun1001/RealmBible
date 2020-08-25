@@ -98,7 +98,7 @@ struct StartView: View {
         if UserDefaults.standard.bool(forKey: "isLoaded") {
             return AnyView(SplashView())
         } else {
-            return AnyView(LoadingBaseView())
+            return AnyView(OnboardingView())
         }
     }
 }
