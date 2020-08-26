@@ -22,12 +22,10 @@ struct isLoadingView<Content>: View where Content: View {
                     .blur(radius: self.isShowing ? 3 : 0)
 
                 VStack {
-                    Text("데이터를 다운받고 있습니다...")
-                    Text("앱 최초 실행 시 로딩됩니다.")
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
-                .frame(width: geometry.size.width / 2,
-                       height: geometry.size.height / 5)
+                .frame(width: geometry.size.width / 4,
+                       height: geometry.size.width / 4)
                 .background(Color.secondary.colorInvert())
                 .foregroundColor(Color.primary)
                 .cornerRadius(20)

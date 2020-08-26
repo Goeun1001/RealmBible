@@ -11,72 +11,84 @@ let lightblueColor = Color(red: 85.0/255.0, green: 84.0/255.0, blue: 166.0/255.0
 import SwiftUI
 
 struct OnboardingView: View {
-
+    
     var subViews = [
         UIHostingController(rootView: Subview(imageString: "First")),
         UIHostingController(rootView: Subview(imageString: "Second")),
-        UIHostingController(rootView: Subview(imageString: "Third"))
+        UIHostingController(rootView: Subview(imageString: "Third")),
+        UIHostingController(rootView: Subview(imageString: "Fourth")),
+        UIHostingController(rootView: Subview(imageString: "Loading"))
     ]
-
-    var titles = ["First", "Second", "Third"]
-
-    var captions =  ["This is first screen.", "This is second screen.", "This is third screen."]
-
+    
+    var titles = ["북마크", "구절 선택", "통독표", "데일리", "로딩중..."]
+    
+    var captions =  ["구절을 두 번 누르면 북마크할 수 있습니다.", "상단 버튼으로 구절 이동을 할 수 있습니다.", "통독표가 생겼습니다! 왼쪽으로 스와이프 시 전체 읽음, 오른쪽으로 스와이프 시 리셋됩니다.", "통독표의 Daily 탭으로 매일 관리하고 싶은 목록을 만들 수 있습니다.", "로딩중 멘트가 뭐더라"]
+    
     @State var currentPageIndex = 0
-//    @EnvironmentObject var dataOnboard: DataOnboarding
     @EnvironmentObject var settings: LoadingSettings
-    @State private var hasTimeElapsed = false
-
+    @State private var isLoaded = false
+    
     var body: some View {
-        VStack(alignment: .leading) {
-
-            PageViewController(currentPageIndex: $currentPageIndex, viewControllers: subViews)
-                .frame(height: (UIScreen.main.bounds.width * 500) / 414)
-
-            Spacer()
-
-            Group {
-
-                Text(titles[currentPageIndex])
-                    .font(.title)
-
-                Text(captions[currentPageIndex])
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .frame(width: 300, height: 50, alignment: .leading)
-                    .lineLimit(nil)
-            }.padding([.leading, .trailing])
-
-            HStack {
-
-                PageControl(numberOfPages: subViews.count, currentPageIndex: $currentPageIndex)
-
+        
+        ZStack {
+            
+            VStack(alignment: .leading) {
+                
+                PageViewController(currentPageIndex: $currentPageIndex, viewControllers: subViews)
+                    .frame(height: UIScreen.main.bounds.height - (UIScreen.main.bounds.height / 4))
+                
                 Spacer()
-
-                Button(action: {
-                    if self.currentPageIndex + 1 == self.subViews.count {
-//                        self.settings.isLoaded = true
-                    } else {
-                        self.currentPageIndex += 1
+                
+                Group {
+                    
+                    Text(titles[currentPageIndex])
+                        .font(.title)
+                    
+                    Text(captions[currentPageIndex])
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .frame(width: 300, height: 50, alignment: .leading)
+                        .lineLimit(nil)
+                }.padding([.leading, .trailing])
+                
+                HStack {
+                    
+                    PageControl(numberOfPages: subViews.count, currentPageIndex: $currentPageIndex)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        if self.currentPageIndex + 1 == self.subViews.count {
+                            self.isLoaded = true
+                        } else {
+                            self.currentPageIndex += 1
+                        }
+                    }) {
+                        Image(systemName: "arrow.right")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 30, height: 30)
+                            .padding()
+                            .background(lightblueColor)
+                            .clipShape(Circle())
                     }
-                }) {
-                    Image(systemName: "arrow.right")
-                        .resizable()
-                        .foregroundColor(.white)
-                        .frame(width: 30, height: 30)
-                        .padding()
-                        .background(lightblueColor)
-                        .clipShape(Circle())
+                }.padding()
+            }.onAppear(perform: delay)
+            
+            if self.isLoaded {
+                isLoadingView(isShowing: .constant(true)) {
+                    Text("")
                 }
-            }.padding()
-        }.onAppear(perform: delay)
+            }
+        }
+        
     }
     
     private func delay() {
         // Delay of 7.5 seconds
-//        DispatchQueue.Concurrent.asyncAfter
+        //        DispatchQueue.Concurrent.asyncAfter
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            self.hasTimeElapsed = true
+//            self.hasTimeElapsed = true
             DataReader().setUpRealm()
             UserDefaults.standard.set("GAE", forKey: "vcode")
             UserDefaults.standard.set("1", forKey: "bcode")
@@ -86,8 +98,16 @@ struct OnboardingView: View {
             UserDefaults.standard.set(true, forKey: "isChanged")
             UserDefaults.standard.set(0, forKey: "selectedIndex")
             UserDefaults.standard.synchronize()
-            self.settings.isLoaded = true
+            
+            if self.isLoaded {
+                DispatchQueue.main.async {
+                    self.settings.isLoaded = true
+                }
+            }
+            
         }
+        
+        
     }
     
 }

@@ -17,7 +17,7 @@ struct Subview: View {
         Image(imageString)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width * 500) / 414)
+            .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.width * 500) / 250)
             .clipped()
     }
 }
