@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SettingDelegate{
+protocol SettingDelegate {
     func settingsDone()
 }
 
@@ -23,7 +23,7 @@ class SettingViewController: UIViewController {
     }
     
     private var books = SecondRealmManager.shared.getAllBooks()
-    var delegate: SettingDelegate?
+    weak var delegate: SettingDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ extension SettingViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SettingCollectionReusableView", for: indexPath) as? SettingCollectionReusableView{
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SettingCollectionReusableView", for: indexPath) as? SettingCollectionReusableView {
             sectionHeader.titleLabel.text = Category.allCases[indexPath.section].rawValue
             return sectionHeader
         }

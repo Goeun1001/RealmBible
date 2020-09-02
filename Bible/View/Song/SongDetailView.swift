@@ -12,7 +12,7 @@ struct SongDetailView: View {
     var number: String
     var name: String
     
-    var realNum : String {
+    var realNum: String {
         DateConverter().getNumber(number: number)
     }
     

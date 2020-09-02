@@ -10,29 +10,28 @@ import Foundation
 
 typealias BookTuple = (title: String, numOfpages: Int, category: Category)
 
-struct Bible{
+struct Bible {
     
-    static func getBibleInfoFromFile() -> [BookTuple]{
-        var bible:[BookTuple] = []
+    static func getBibleInfoFromFile() -> [BookTuple] {
+        var bible: [BookTuple] = []
         
         if let path = Bundle.main.path(forResource: "category_type_1", ofType: "txt") {
             do {
                 let data = try String(contentsOfFile: path, encoding: .utf8)
                 let myStrings = data.components(separatedBy: .newlines)
                 
-                guard let newIndex:Int = myStrings.firstIndex(of: "신약 ") else {return []}
+                guard let newIndex: Int = myStrings.firstIndex(of: "신약 ") else {return []}
                 
-                
-                for (index,item) in myStrings.enumerated(){
+                for (index, item) in myStrings.enumerated() {
                     
-                    guard let title = item.getArrayAfterRegex(regex: "[ㄱ-ㅎㅏ-ㅣ가-힣0-9]+()").first else{continue}
+                    guard let title = item.getArrayAfterRegex(regex: "[ㄱ-ㅎㅏ-ㅣ가-힣0-9]+()").first else {continue}
                     
-                    guard let numString = item.getArrayAfterRegex(regex: "[(][(0-9)]+").first, let numOfPages = Int(numString[numString.index(after: numString.startIndex)...]) else{continue}
+                    guard let numString = item.getArrayAfterRegex(regex: "[(][(0-9)]+").first, let numOfPages = Int(numString[numString.index(after: numString.startIndex)...]) else {continue}
                     
-                    if index < newIndex{
-                        bible.append((title,numOfPages,.old))
+                    if index < newIndex {
+                        bible.append((title, numOfPages, .old))
                     } else {
-                        bible.append((title,numOfPages,.new))
+                        bible.append((title, numOfPages, .new))
                     }
                 }
                 

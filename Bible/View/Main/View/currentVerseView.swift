@@ -16,7 +16,7 @@ struct VerseView: View {
     
     var body: some View {
         NavigationView {
-            List(verseVM.verses, id:\.id) { verse in
+            List(verseVM.verses, id: \.id) { verse in
                 HStack {
                     VStack {
                         Text(verse.vnum)
@@ -27,7 +27,7 @@ struct VerseView: View {
                     .font(.custom("NanumSquareB", size: 18))
                 }
             }
-            .onAppear() {
+            .onAppear {
                 self.verseVM.apply(.onAppear)
             }
             .navigationBarTitle(Text("\(verseVM.bibleName.name) \(self.verseVM.verses.first?.cnum ?? "0")장"))
@@ -38,7 +38,7 @@ struct VerseView: View {
                     }
                     imageView(imageName: "arrowtriangle.left.fill")
                         .onTapGesture {
-                            if (Int(self.verseVM.verses.first!.cnum)! - 1 != 0) {
+                            if Int(self.verseVM.verses.first!.cnum)! - 1 != 0 {
                                 let minus = Int(self.verseVM.verses.first!.cnum)! - 1
                                 UserDefaults.standard.set("\(minus)", forKey: "cnum")
                                 UserDefaults.standard.synchronize()
@@ -47,7 +47,7 @@ struct VerseView: View {
                     }
                     imageView(imageName: "arrowtriangle.right.fill")
                     .onTapGesture {
-                        if (Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1) {
+                        if Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1 {
                                 let plus = Int(self.verseVM.verses.first!.cnum)! + 1
                                 UserDefaults.standard.set("\(plus)", forKey: "cnum")
                                 UserDefaults.standard.synchronize()
@@ -67,7 +67,7 @@ struct currentVerseView_Previews: PreviewProvider {
     }
 }
 
-struct imageView : View {
+struct imageView: View {
     let imageName: String
     var body: some View {
         Image(systemName: "\(imageName)")

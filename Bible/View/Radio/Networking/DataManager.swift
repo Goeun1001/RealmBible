@@ -18,7 +18,7 @@ struct DataManager {
 
         DispatchQueue.global(qos: .userInitiated).async {
             if useLocalStations {
-                getDataFromFileWithSuccess() { data in
+                getDataFromFileWithSuccess { data in
                     success(data)
                 }
             } else {
@@ -28,7 +28,7 @@ struct DataManager {
                     return
                 }
                 
-                loadDataFromURL(url: stationDataURL) { data, error in
+                loadDataFromURL(url: stationDataURL) { data, _ in
                     success(data)
                 }
             }

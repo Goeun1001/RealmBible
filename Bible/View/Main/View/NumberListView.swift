@@ -16,10 +16,10 @@ struct NumberListView: View {
     
     var bcode: Int
     var chapter_num: Int
-    var name : String
+    var name: String
     
     var body: some View {
-        WaterfallGrid(1..<chapter_num + 1, id: \.self)  { number in
+        WaterfallGrid(1..<chapter_num + 1, id: \.self) { number in
             numberGridView(text: String(number))
             .onTapGesture {
                 UserDefaults.standard.set("\(self.bcode)", forKey: "bcode")

@@ -18,7 +18,7 @@ struct BibleListView: View {
     @State private var isOld = UserDefaults.standard.value(forKey: "type") as! String
     
     var body: some View {
-        List((isOld == "old") ? bibleListVM.oldbibles : bibleListVM.newBibles, id:\.id) { bible in
+        List((isOld == "old") ? bibleListVM.oldbibles : bibleListVM.newBibles, id: \.id) { bible in
             NavigationLink(destination: NumberListView(dismissAll: self.$dismissAll, bcode: bible.bcode, chapter_num: bible.chapterCount, name: bible.name)) {
                 HStack {
                     Text(self.isOld == "old" ? String(bible.bcode) : String(bible.bcode - 39))
@@ -32,8 +32,8 @@ struct BibleListView: View {
                 .padding(.top, 10)
                 .padding(.bottom, 10)
             }
-            .onAppear() {
-                if (self.dismissAll == true) {
+            .onAppear {
+                if self.dismissAll == true {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }

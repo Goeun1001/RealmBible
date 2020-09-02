@@ -15,14 +15,12 @@ struct LottieView: UIViewRepresentable {
   func makeCoordinator() -> Coordinator {
     Coordinator(self)
   }
-  
 
   //json파일명을 받을 프로퍼티
   var filename: String
   
   //lottie View
   var animationView = AnimationView()
-  
   
   class Coordinator: NSObject {
     var parent: LottieView

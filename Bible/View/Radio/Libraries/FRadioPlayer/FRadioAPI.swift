@@ -13,14 +13,14 @@ internal struct FRadioAPI {
     
     // MARK: - Util methods
     
-    static func getArtwork(for metadata: String, size: Int, completionHandler: @escaping (_ artworkURL: URL?) -> ()) {
+    static func getArtwork(for metadata: String, size: Int, completionHandler: @escaping (_ artworkURL: URL?) -> Void) {
         
         guard !metadata.isEmpty, metadata !=  " - ", let url = getURL(with: metadata) else {
             completionHandler(nil)
             return
         }
                 
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
             guard error == nil, let data = data else {
                 completionHandler(nil)
                 return
@@ -29,7 +29,7 @@ internal struct FRadioAPI {
             let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
             
             guard let parsedResult = json as? [String: Any],
-                let results = parsedResult[Keys.results] as? Array<[String: Any]>,
+                let results = parsedResult[Keys.results] as? [[String: Any]],
                 let result = results.first,
                 var artwork = result[Keys.artwork] as? String else {
                     completionHandler(nil)
@@ -78,4 +78,3 @@ internal struct FRadioAPI {
         static let entity = "song"
     }
 }
-

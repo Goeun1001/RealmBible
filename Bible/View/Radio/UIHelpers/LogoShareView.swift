@@ -20,7 +20,7 @@ class LogoShareView: UIView {
         return UINib(nibName: "LogoShareView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! LogoShareView
     }
     
-    func shareSetup(albumArt : UIImage, radioShoutout: String, trackTitle: String, trackArtist: String) {
+    func shareSetup(albumArt: UIImage, radioShoutout: String, trackTitle: String, trackArtist: String) {
         self.albumArtImageView.image = albumArt
         self.radioShoutoutLabel.text = radioShoutout
         self.trackTitleLabel.text = trackTitle

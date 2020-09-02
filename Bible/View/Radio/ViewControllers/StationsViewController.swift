@@ -117,7 +117,7 @@ class StationsViewController: UIViewController {
     
     func createNowPlayingBarButton() {
         guard navigationItem.rightBarButtonItem == nil else { return }
-        let btn = UIBarButtonItem(title: "", style: .plain, target: self, action:#selector(nowPlayingBarButtonPressed))
+        let btn = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(nowPlayingBarButtonPressed))
         btn.image = UIImage(named: "btn-nowPlaying")
         navigationItem.rightBarButtonItem = btn
     }
@@ -155,7 +155,7 @@ class StationsViewController: UIViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         // Get the Radio Stations
-        DataManager.getStationDataWithSuccess() { (data) in
+        DataManager.getStationDataWithSuccess { (data) in
             
             // Turn off network indicator in status bar
             defer {
@@ -257,22 +257,22 @@ class StationsViewController: UIViewController {
         let commandCenter = MPRemoteCommandCenter.shared()
         
         // Add handler for Play Command
-        commandCenter.playCommand.addTarget { event in
+        commandCenter.playCommand.addTarget { _ in
             return .success
         }
         
         // Add handler for Pause Command
-        commandCenter.pauseCommand.addTarget { event in
+        commandCenter.pauseCommand.addTarget { _ in
             return .success
         }
         
         // Add handler for Next Command
-        commandCenter.nextTrackCommand.addTarget { event in
+        commandCenter.nextTrackCommand.addTarget { _ in
             return .success
         }
         
         // Add handler for Previous Command
-        commandCenter.previousTrackCommand.addTarget { event in
+        commandCenter.previousTrackCommand.addTarget { _ in
             return .success
         }
     }
@@ -284,10 +284,10 @@ class StationsViewController: UIViewController {
     func updateLockScreen(with track: Track?) {
         
         // Define Now Playing Info
-        var nowPlayingInfo = [String : Any]()
+        var nowPlayingInfo = [String: Any]()
         
         if let image = track?.artworkImage {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { size -> UIImage in
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { _ -> UIImage in
                 return image
             })
         }

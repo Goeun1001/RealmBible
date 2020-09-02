@@ -14,7 +14,7 @@ struct BookmarkedView: View {
     
     var body: some View {
         List {
-            ForEach(self.verseVM.markedverses, id:\.self) { verse in
+            ForEach(self.verseVM.markedverses, id: \.self) { verse in
                 HStack {
                     VStack(spacing: 7) {
                         Text(verse.content)
@@ -41,7 +41,7 @@ struct BookmarkedView: View {
                     self.verseVM.LikeChange(id: verse.id)
                 }
             }
-        }.onAppear() {
+        }.onAppear {
             self.verseVM.getBookmarked()
         }
         .navigationBarTitle("북마크함")

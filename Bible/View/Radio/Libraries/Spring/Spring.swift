@@ -23,10 +23,10 @@
 import UIKit
 
 @objc public protocol Springable {
-    var autostart: Bool  { get set }
-    var autohide: Bool  { get set }
-    var animation: String  { get set }
-    var force: CGFloat  { get set }
+    var autostart: Bool { get set }
+    var autohide: Bool { get set }
+    var animation: String { get set }
+    var force: CGFloat { get set }
     var delay: CGFloat { get set }
     var duration: CGFloat { get set }
     var damping: CGFloat { get set }
@@ -42,19 +42,19 @@ import UIKit
     var curve: String { get set }
     
     // UIView
-    var layer : CALayer { get }
-    var transform : CGAffineTransform { get set }
-    var alpha : CGFloat { get set }
+    var layer: CALayer { get }
+    var transform: CGAffineTransform { get set }
+    var alpha: CGFloat { get set }
     
     func animate()
-    func animateNext(completion: @escaping () -> ())
+    func animateNext(completion: @escaping () -> Void)
     func animateTo()
-    func animateToNext(completion: @escaping () -> ())
+    func animateToNext(completion: @escaping () -> Void)
 }
 
-public class Spring : NSObject {
+public class Spring: NSObject {
     
-    private unowned var view : Springable
+    private unowned var view: Springable
     private var shouldAnimateAfterActive = false
     private var shouldAnimateInLayoutSubviews = true
     
@@ -99,8 +99,8 @@ public class Spring : NSObject {
     private var curve: String { set { self.view.curve = newValue } get { return self.view.curve }}
     
     // UIView
-    private var layer : CALayer { return view.layer }
-    private var transform : CGAffineTransform { get { return view.transform } set { view.transform = newValue }}
+    private var layer: CALayer { return view.layer }
+    private var transform: CGAffineTransform { get { return view.transform } set { view.transform = newValue }}
     private var alpha: CGFloat { get { return view.alpha } set { view.alpha = newValue } }
     
     public enum AnimationPreset: String {
@@ -276,7 +276,7 @@ public class Spring : NSObject {
                 animation.fromValue = NSValue(caTransform3D:
                     CATransform3DMakeRotation(0, 0, 0, 0))
                 animation.toValue = NSValue(caTransform3D:
-                    CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(CGFloat.pi), 1, 0, 0)))
+                    CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(CGFloat.pi), 1, 0, 0)))
                 animation.duration = CFTimeInterval(duration)
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
@@ -419,7 +419,7 @@ public class Spring : NSObject {
         setView {}
     }
     
-    public func animateNext(completion: @escaping () -> ()) {
+    public func animateNext(completion: @escaping () -> Void) {
         animateFrom = true
         animatePreset()
         setView {
@@ -433,7 +433,7 @@ public class Spring : NSObject {
         setView {}
     }
     
-    public func animateToNext(completion: @escaping () -> ()) {
+    public func animateToNext(completion: @escaping () -> Void) {
         animateFrom = false
         animatePreset()
         setView {
@@ -461,7 +461,7 @@ public class Spring : NSObject {
         }
     }
     
-    func setView(completion: @escaping () -> ()) {
+    func setView(completion: @escaping () -> Void) {
         if animateFrom {
             let translate = CGAffineTransform(translationX: self.x, y: self.y)
             let scale = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
@@ -478,13 +478,11 @@ public class Spring : NSObject {
                         initialSpringVelocity: velocity,
                         options: [getAnimationOptions(curve: curve), UIView.AnimationOptions.allowUserInteraction],
                         animations: { [weak self] in
-                            if let _self = self
-                            {
+                            if let _self = self {
                                 if _self.animateFrom {
                                     _self.transform = CGAffineTransform.identity
                                     _self.alpha = 1
-                                }
-                                else {
+                                } else {
                                     let translate = CGAffineTransform(translationX: _self.x, y: _self.y)
                                     let scale = CGAffineTransform(scaleX: _self.scaleX, y: _self.scaleY)
                                     let rotate = CGAffineTransform(rotationAngle: _self.rotate)
@@ -496,7 +494,7 @@ public class Spring : NSObject {
                                 
                             }
                             
-            }, completion: { [weak self] finished in
+            }, completion: { [weak self] _ in
                 
                 completion()
                 self?.resetAll()

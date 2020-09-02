@@ -7,7 +7,7 @@
 //
 import Foundation
 
-extension String{
+extension String {
     
     func getArrayAfterRegex(regex: String) -> [String] {
         

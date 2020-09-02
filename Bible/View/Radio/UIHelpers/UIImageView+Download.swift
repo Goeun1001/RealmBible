@@ -10,11 +10,11 @@ import UIKit
 
 extension UIImageView {
     
-    func loadImageWithURL(url: URL, callback: @escaping (UIImage) -> ()) {
+    func loadImageWithURL(url: URL, callback: @escaping (UIImage) -> Void) {
         let session = URLSession.shared
         
         let downloadTask = session.downloadTask(with: url, completionHandler: {
-            [weak self] url, response, error in
+            [weak self] url, _, error in
             
             if error == nil && url != nil {
                 if let data = NSData(contentsOf: url!) {
@@ -35,5 +35,3 @@ extension UIImageView {
         downloadTask.resume()
     }
 }
-
-

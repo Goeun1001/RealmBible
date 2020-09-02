@@ -87,11 +87,11 @@ class RadioPlayer {
     // MARK: - Private helpers
     //*****************************************************************
     
-    private func getStationImage(from station: RadioStation, completionHandler: @escaping (_ image: UIImage) -> ()) {
+    private func getStationImage(from station: RadioStation, completionHandler: @escaping (_ image: UIImage) -> Void) {
         
         if station.imageURL.range(of: "http") != nil {
             // load current station image from network
-            ImageLoader.sharedLoader.imageForUrl(urlString: station.imageURL) { (image, stringURL) in
+            ImageLoader.sharedLoader.imageForUrl(urlString: station.imageURL) { (image, _) in
                 completionHandler(image ?? #imageLiteral(resourceName: "albumArt"))
             }
         } else {
@@ -126,7 +126,7 @@ extension RadioPlayer: FRadioPlayerDelegate {
     func radioPlayer(_ player: FRadioPlayer, artworkDidChange artworkURL: URL?) {
         guard let artworkURL = artworkURL else { resetArtwork(with: station); return }
         
-        ImageLoader.sharedLoader.imageForUrl(urlString: artworkURL.absoluteString) { (image, stringURL) in
+        ImageLoader.sharedLoader.imageForUrl(urlString: artworkURL.absoluteString) { (image, _) in
             guard let image = image else { self.resetArtwork(with: self.station); return }
             self.updateTrackArtwork(with: image, artworkLoaded: true)
         }

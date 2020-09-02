@@ -22,7 +22,7 @@ struct VerseView: View {
             ZStack(alignment: .bottom) {
                 GeometryReader { _ in
                     List {
-                        ForEach(self.verseVM.verses, id:\.id) { verse in
+                        ForEach(self.verseVM.verses, id: \.id) { verse in
                             HStack {
                                 VStack {
                                     Text(verse.vnum)
@@ -54,7 +54,7 @@ struct VerseView: View {
                             self.offset = gesture.translation
                             if self.offset.height >= 0 {
                                 self.float = true
-                            } else if (self.offset.height < 0) {
+                            } else if self.offset.height < 0 {
                                 self.float = false
                             }
                     }
@@ -66,7 +66,7 @@ struct VerseView: View {
                         NavigationLink(destination: CheckListToUI()) {
                             barView(imageName: "LeftBook", text: "통독표")
                                 .padding(.leading, 20)
-                        }.simultaneousGesture(TapGesture().onEnded{
+                        }.simultaneousGesture(TapGesture().onEnded {
                             self.inline = true
                         })
                         
@@ -86,7 +86,7 @@ struct VerseView: View {
                         
                         NavigationLink(destination: CCMVCtoUI()) {
                             barView(imageName: "CCM", text: "CCM")
-                        }.simultaneousGesture(TapGesture().onEnded{
+                        }.simultaneousGesture(TapGesture().onEnded {
                             self.inline = true
                         })
                         
@@ -102,8 +102,8 @@ struct VerseView: View {
                          .background(RoundedCorners(color: Color("Gray"), tl: 25, tr: 25, bl: 0, br: 0))
                 }
             }.edgesIgnoringSafeArea(.bottom)
-                .onAppear() {
-                    if (UserDefaults.standard.value(forKey: "isChanged") as! Bool == true) {
+                .onAppear {
+                    if UserDefaults.standard.value(forKey: "isChanged") as! Bool == true {
                         self.verseVM.apply(.onAppear)
                         UserDefaults.standard.set(false, forKey: "isChanged")
                         UserDefaults.standard.synchronize()
@@ -118,7 +118,7 @@ struct VerseView: View {
                     }
                     imageView(imageName: "arrowtriangle.left", isSystem: true)
                         .onTapGesture {
-                            if (Int(self.verseVM.verses.first!.cnum)! - 1 != 0) {
+                            if Int(self.verseVM.verses.first!.cnum)! - 1 != 0 {
                                 let minus = Int(self.verseVM.verses.first!.cnum)! - 1
                                 UserDefaults.standard.set("\(minus)", forKey: "cnum")
                                 UserDefaults.standard.synchronize()
@@ -127,7 +127,7 @@ struct VerseView: View {
                     }
                     imageView(imageName: "arrowtriangle.right", isSystem: true)
                         .onTapGesture {
-                            if (Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1) {
+                            if Int(self.verseVM.verses.first!.cnum)! + 1 != self.verseVM.bibleName.chapterCount + 1 {
                                 let plus = Int(self.verseVM.verses.first!.cnum)! + 1
                                 UserDefaults.standard.set("\(plus)", forKey: "cnum")
                                 UserDefaults.standard.synchronize()
@@ -147,7 +147,7 @@ struct currentVerseView_Previews: PreviewProvider {
     }
 }
 
-struct imageView : View {
+struct imageView: View {
     let imageName: String
     let isSystem: Bool
     var body: some View {

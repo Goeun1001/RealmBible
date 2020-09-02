@@ -108,7 +108,6 @@ struct OnboardingView: View {
             
         }
         
-        
     }
     
 }

@@ -10,8 +10,8 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    var book = Book(){
-        didSet{
+    var book = Book() {
+        didSet {
             updateCell()
         }
     }
@@ -36,28 +36,28 @@ class BookTableViewCell: UITableViewCell {
     //문제1 : 마지막 인덱스의 아이템의  maxY로 높이를 설정해주면 깔끔한데
     // se에서는 값을 correct하게 못찾는다 -> stack overflow에 올려보기
     //https://stackoverflow.com/questions/14674986/uicollectionview-set-number-of-columns
-    private func setCollectionViewHeight(){
+    private func setCollectionViewHeight() {
         
         let lastIndex = IndexPath(item: book.pageList.count-1, section: 0)
-        if let att = collectionView.layoutAttributesForItem(at: lastIndex){
+        if let att = collectionView.layoutAttributesForItem(at: lastIndex) {
             collectionViewHeight.constant = att.frame.maxY
         }
         
     }
     
-    private func setCollectionView(){
+    private func setCollectionView() {
         collectionView.register(UINib(nibName: "PageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PageCollectionViewCell")
         //xib파일에서 오토레이아웃 하려면 설정해주기 :)
         //https://zeddios.tistory.com/474
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
+        if let flow = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
             flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
         }
     }
     
-    private func updateCell(){
+    private func updateCell() {
         bookNameLabel.text = book.title
         collectionView.reloadData()
         setCollectionViewHeight()
@@ -79,8 +79,7 @@ class BookTableViewCell: UITableViewCell {
     
 }
 
-
-extension BookTableViewCell:UICollectionViewDataSource{
+extension BookTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return book.pageList.count
@@ -88,7 +87,7 @@ extension BookTableViewCell:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCollectionViewCell", for: indexPath) as? PageCollectionViewCell else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCollectionViewCell", for: indexPath) as? PageCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -100,7 +99,7 @@ extension BookTableViewCell:UICollectionViewDataSource{
     
 }
 
-extension BookTableViewCell:UICollectionViewDelegateFlowLayout{
+extension BookTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.calculateWith()
@@ -111,11 +110,10 @@ extension BookTableViewCell:UICollectionViewDelegateFlowLayout{
         let page = book.pageList[indexPath.row]
         SecondRealmManager.shared.changeIsReadOfPage(title: book.title, pageNumber: page.pageNumber, isRead: !page.isRead)
         
-        if let cell = collectionView.cellForItem(at: indexPath) as? PageCollectionViewCell{
-            cell.toggle(isRead:page.isRead)
+        if let cell = collectionView.cellForItem(at: indexPath) as? PageCollectionViewCell {
+            cell.toggle(isRead: page.isRead)
         }
         
     }
-    
     
 }

@@ -17,19 +17,19 @@ class SecondRealmManager {
     
     static let shared = SecondRealmManager()
     
-    private init(){
+    private init() {
         if !getAllBooks().isEmpty { return }
         let bible = Bible.getBibleInfoFromFile()
-        bible.forEach{ addBook($0) }
+        bible.forEach { addBook($0) }
     }
     
-    private func addBook(_ bookTuple: BookTuple){
+    private func addBook(_ bookTuple: BookTuple) {
         
         //db에 추가
         let book = Book()
         book.title = bookTuple.title
         
-        for i in 1...bookTuple.numOfpages{
+        for i in 1...bookTuple.numOfpages {
             let pageObject = PageObject(pageNumber: String(i))
             book.pageList.append(pageObject)
         }
@@ -43,16 +43,15 @@ class SecondRealmManager {
         book.add()
     }
     
-    
-    func getAllBooks()->[Book]{
+    func getAllBooks() -> [Book] {
         
-        var bookList:[Book] = []
+        var bookList: [Book] = []
         
         do {
             let realm = try Realm()
             let results = realm.objects(Book.self)
             //Results<Book> 타입
-            bookList = results.map{$0}
+            bookList = results.map {$0}
             
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -61,14 +60,14 @@ class SecondRealmManager {
         return bookList
     }
     
-    func getBooksOfCategory(category: String)->[Book]{
+    func getBooksOfCategory(category: String) -> [Book] {
         
-        var bookList:[Book] = []
+        var bookList: [Book] = []
         
         do {
             let realm = try Realm()
-            let books = realm.objects(Book.self).filter{$0.category == category}
-            bookList = books.map{$0}
+            let books = realm.objects(Book.self).filter {$0.category == category}
+            bookList = books.map {$0}
             
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -78,12 +77,11 @@ class SecondRealmManager {
         
     }
     
-    
-    func getBook(title:String)->Book?{
+    func getBook(title: String) -> Book? {
         
-        do{
+        do {
             let realm = try Realm()
-            let book = realm.objects(Book.self).filter{$0.title == title}.first
+            let book = realm.objects(Book.self).filter {$0.title == title}.first
             return book
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -92,13 +90,13 @@ class SecondRealmManager {
         return nil
     }
     
-    func changeIsReadOfPage(title:String, pageNumber:String, isRead:Bool){
+    func changeIsReadOfPage(title: String, pageNumber: String, isRead: Bool) {
         
-        do{
+        do {
             let realm = try Realm()
-            let book = realm.objects(Book.self).filter{$0.title == title}.first
+            let book = realm.objects(Book.self).filter {$0.title == title}.first
             try realm.write {
-                let page = book?.pageList.filter{$0.pageNumber == pageNumber}.first
+                let page = book?.pageList.filter {$0.pageNumber == pageNumber}.first
                 page?.isRead = isRead
             }
         } catch let error as NSError {
@@ -106,14 +104,14 @@ class SecondRealmManager {
         }
     }
     
-    func changeAllRead(title:String,isRead:Bool){
-        do{
+    func changeAllRead(title: String, isRead: Bool) {
+        do {
             let realm = try Realm()
-            let book = realm.objects(Book.self).filter{$0.title == title}.first
+            let book = realm.objects(Book.self).filter {$0.title == title}.first
             try realm.write {
 
-                if let pageList = book?.pageList{
-                    for page in pageList{
+                if let pageList = book?.pageList {
+                    for page in pageList {
                         page.isRead = isRead
                     }
                 }
@@ -124,16 +122,16 @@ class SecondRealmManager {
         }
     }
     
-    func changeAllDelete(isRead:Bool){
+    func changeAllDelete(isRead: Bool) {
         
         for i in koreaBibles {
-            do{
+            do {
                 let realm = try Realm()
-                let book = realm.objects(Book.self).filter{$0.title == i}.first
+                let book = realm.objects(Book.self).filter {$0.title == i}.first
                 try realm.write {
 
-                    if let pageList = book?.pageList{
-                        for page in pageList{
+                    if let pageList = book?.pageList {
+                        for page in pageList {
                             page.isRead = isRead
                         }
                     }
@@ -146,9 +144,9 @@ class SecondRealmManager {
     }
     
     func changeDaily(title: String, isDaily: Bool) {
-        do{
+        do {
             let realm = try Realm()
-            let book = realm.objects(Book.self).filter{$0.title == title}.first
+            let book = realm.objects(Book.self).filter {$0.title == title}.first
             try realm.write {
                 book?.isDaily = isDaily
             }

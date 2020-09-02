@@ -12,7 +12,7 @@ struct GyodokDetailView: View {
     let jang: Int
     let title: String
     
-    var gyodokDetail : [RealmGyodok] {
+    var gyodokDetail: [RealmGyodok] {
         RealmManager.shared.getGyodokFromJang(jang: jang)
     }
     

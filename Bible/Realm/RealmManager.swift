@@ -17,12 +17,12 @@ class RealmManager {
     // MARK: Bible
     
     func getBibleLists(vcode: String, type: String) -> [RealmBible] {
-        var bibleList : [RealmBible] = []
+        var bibleList: [RealmBible] = []
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmBible.self).filter{$0.vcode == vcode}.filter{$0.type == type}
-            bibleList = result.map{$0}
+            let result = realm.objects(RealmBible.self).filter {$0.vcode == vcode}.filter {$0.type == type}
+            bibleList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -31,12 +31,12 @@ class RealmManager {
     
     func getCustomBible(vcode: String, bcode: String, cnum: String) -> AnyPublisher<[RealmVerse], RealmError> {
         
-        var verseList : [RealmVerse] = []
+        var verseList: [RealmVerse] = []
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmVerse.self).filter{$0.vcode == vcode}.filter{$0.bcode == Int(bcode)}.filter{$0.cnum == cnum}
-            verseList = result.map{$0}
+            let result = realm.objects(RealmVerse.self).filter {$0.vcode == vcode}.filter {$0.bcode == Int(bcode)}.filter {$0.cnum == cnum}
+            verseList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -45,12 +45,12 @@ class RealmManager {
         .eraseToAnyPublisher()
     }
     
-    func getNamefrombcode(vcode: String,bcode: String) -> AnyPublisher<RealmBible, RealmError> {
+    func getNamefrombcode(vcode: String, bcode: String) -> AnyPublisher<RealmBible, RealmError> {
         var bible = RealmBible()
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmBible.self).filter{$0.vcode == vcode}.filter{$0.bcode == Int(bcode)}
+            let result = realm.objects(RealmBible.self).filter {$0.vcode == vcode}.filter {$0.bcode == Int(bcode)}
             bible = result.first!
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -61,13 +61,13 @@ class RealmManager {
         .eraseToAnyPublisher()
     }
     
-    //MARK: For Bookmark
+    // MARK: For Bookmark
     func writeBookmarked(id: Int, bool: Bool) {        
-        do{
+        do {
             let realm = try Realm()
             
             try realm.write {
-                let book = realm.objects(RealmVerse.self).filter{$0.id == id}.first
+                let book = realm.objects(RealmVerse.self).filter {$0.id == id}.first
                 book?.bookmarked = bool ? 1 : 0
             }
         } catch let error as NSError {
@@ -77,12 +77,12 @@ class RealmManager {
     
     func getVerse(vcode: String, bcode: String, cnum: String) -> [RealmVerse] {
         
-        var verseList : [RealmVerse] = []
+        var verseList: [RealmVerse] = []
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmVerse.self).filter{$0.vcode == vcode}.filter{$0.bcode == Int(bcode)}.filter{$0.cnum == cnum}
-            verseList = result.map{$0}
+            let result = realm.objects(RealmVerse.self).filter {$0.vcode == vcode}.filter {$0.bcode == Int(bcode)}.filter {$0.cnum == cnum}
+            verseList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -91,28 +91,28 @@ class RealmManager {
     
     func getBookmarkedVerse(vcode: String) -> [RealmVerse] {
         
-        var verseList : [RealmVerse] = []
+        var verseList: [RealmVerse] = []
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmVerse.self).filter{$0.vcode == vcode}.filter{$0.bookmarked == 1}
-            verseList = result.map{$0}
+            let result = realm.objects(RealmVerse.self).filter {$0.vcode == vcode}.filter {$0.bookmarked == 1}
+            verseList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
         return verseList
     }
     
-    //MARK: Gyodok
+    // MARK: Gyodok
     
     func getGyodokALL() -> [RealmGyodok] {
         
-        var gyodokList : [RealmGyodok] = []
+        var gyodokList: [RealmGyodok] = []
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmGyodok.self).filter{$0.sojul == 1}
-            gyodokList = result.map{$0}
+            let result = realm.objects(RealmGyodok.self).filter {$0.sojul == 1}
+            gyodokList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -121,12 +121,12 @@ class RealmManager {
     
     func getGyodokFromJang(jang: Int) -> [RealmGyodok] {
         
-        var gyodokList : [RealmGyodok] = []
+        var gyodokList: [RealmGyodok] = []
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmGyodok.self).filter{$0.jang == jang}
-            gyodokList = result.map{$0}
+            let result = realm.objects(RealmGyodok.self).filter {$0.jang == jang}
+            gyodokList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -135,12 +135,12 @@ class RealmManager {
     
     func getGyodokFromSearch(search: String) -> [RealmGyodok] {
         
-        var gyodokList : [RealmGyodok] = []
+        var gyodokList: [RealmGyodok] = []
         
         do {
             let realm = try Realm()
-            let result = realm.objects(RealmGyodok.self).filter("title CONTAINS '\(search)'").filter{$0.sojul == 1}
-            gyodokList = result.map{$0}
+            let result = realm.objects(RealmGyodok.self).filter("title CONTAINS '\(search)'").filter {$0.sojul == 1}
+            gyodokList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -151,12 +151,12 @@ class RealmManager {
     
     func getSongALL() -> [RealmSong] {
         
-        var songList : [RealmSong] = []
+        var songList: [RealmSong] = []
         
         do {
             let realm = try Realm()
             let result = realm.objects(RealmSong.self)
-            songList = result.map{$0}
+            songList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -165,11 +165,11 @@ class RealmManager {
     
     func getSongFromSearch(search: String) -> [RealmSong] {
         let realSch = String(search.components(separatedBy: ["장"]).joined())
-        var songList : [RealmSong] = []
+        var songList: [RealmSong] = []
         do {
             let realm = try Realm()
             let result = realm.objects(RealmSong.self).filter("title CONTAINS '\(realSch)' OR number CONTAINS '\(realSch)'")
-            songList = result.map{$0}
+            songList = result.map {$0}
         } catch let error as NSError {
             print(error.localizedDescription)
         }

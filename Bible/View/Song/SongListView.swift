@@ -14,7 +14,7 @@ struct SongListView: View {
     @State var search: String = ""
     @State var isSearching = false
     
-    var songSearching : [RealmSong] {
+    var songSearching: [RealmSong] {
         RealmManager.shared.getSongFromSearch(search: search)
     }
     

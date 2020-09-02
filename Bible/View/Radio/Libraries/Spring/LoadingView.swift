@@ -74,7 +74,7 @@ public extension UIView {
             SpringAnimation.springWithCompletion(duration: 0.7, animations: {
                 loadingXibView.alpha = 0
                 loadingXibView.transform = CGAffineTransform(scaleX: 3, y: 3)
-            }, completion: { (completed) -> Void in
+            }, completion: { (_) -> Void in
                 loadingXibView.removeFromSuperview()
             })
         }

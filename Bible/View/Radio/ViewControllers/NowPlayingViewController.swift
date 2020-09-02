@@ -10,7 +10,6 @@ import UIKit
 import MediaPlayer
 import AVKit
 
-
 //*****************************************************************
 // NowPlayingViewControllerDelegate
 //*****************************************************************
@@ -293,7 +292,7 @@ class NowPlayingViewController: UIViewController {
         activityViewController.popoverPresentationController?.sourceView = view
         activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         
-        activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed:Bool, returnedItems:[Any]?, error: Error?) in
+        activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if completed {
                 // do something on completion if you want
             }

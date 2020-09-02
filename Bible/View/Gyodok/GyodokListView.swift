@@ -13,7 +13,7 @@ struct GyodokListView: View {
     @State var search: String = ""
     @State var isSearching = false
     
-    var gyodokSearching : [RealmGyodok] {
+    var gyodokSearching: [RealmGyodok] {
         RealmManager.shared.getGyodokFromSearch(search: search)
     }
     

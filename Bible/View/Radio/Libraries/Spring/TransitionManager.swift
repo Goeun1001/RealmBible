@@ -42,8 +42,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
                 fromView.alpha = 0.5
                 toView.transform = CGAffineTransform.identity
             }
-        }
-        else {
+        } else {
 
             // 1. Rotating will change the bounds
             // 2. we have to properly reset toView

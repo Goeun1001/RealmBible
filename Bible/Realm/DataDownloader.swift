@@ -13,22 +13,21 @@ import RealmSwift
 class DataReader {
     func readBibles(_ queryString: String) {
         var db: OpaquePointer?
-        var stmt:OpaquePointer?
+        var stmt: OpaquePointer?
         
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("holybible.db")
-        
         
         if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
             print("error opening database")
         }
         
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
         }
         
-        while(sqlite3_step(stmt) == SQLITE_ROW){
+        while sqlite3_step(stmt) == SQLITE_ROW {
             let realmBibleItem = RealmBible()
             
             let id = sqlite3_column_int(stmt, 0)
@@ -58,22 +57,21 @@ class DataReader {
     
     func readVerses(_ queryString: String) {
         var db: OpaquePointer?
-        var stmt:OpaquePointer?
+        var stmt: OpaquePointer?
         
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("holybible.db")
-        
         
         if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
             print("error opening database")
         }
         
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
         }
         
-        while(sqlite3_step(stmt) == SQLITE_ROW){
+        while sqlite3_step(stmt) == SQLITE_ROW {
             let realmVerseItem = RealmVerse()
             
             let id = sqlite3_column_int(stmt, 0)
@@ -111,19 +109,18 @@ class DataReader {
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("holybible.db")
         
-        
         if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
             print("error opening database")
         }
         
-        var stmt:OpaquePointer?
+        var stmt: OpaquePointer?
         
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
         }
         
-        while(sqlite3_step(stmt) == SQLITE_ROW){
+        while sqlite3_step(stmt) == SQLITE_ROW {
             let realmDailyItem = RealmDaily()
             
             let id = sqlite3_column_int(stmt, 0)
@@ -145,22 +142,21 @@ class DataReader {
     
     func readGyodok(_ queryString: String) {
         var db: OpaquePointer?
-        var stmt:OpaquePointer?
+        var stmt: OpaquePointer?
         
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("holybible.db")
-        
         
         if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
             print("error opening database")
         }
         
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
         }
         
-        while(sqlite3_step(stmt) == SQLITE_ROW){
+        while sqlite3_step(stmt) == SQLITE_ROW {
             let realmGyodokItem = RealmGyodok()
             
             let id = sqlite3_column_int(stmt, 0)
@@ -186,24 +182,23 @@ class DataReader {
         
     }
     
-    func readSong(_ queryString: String){
+    func readSong(_ queryString: String) {
         var db: OpaquePointer?
-        var stmt:OpaquePointer?
+        var stmt: OpaquePointer?
         
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("holybible.db")
-        
         
         if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
             print("error opening database")
         }
         
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
         }
         
-        while(sqlite3_step(stmt) == SQLITE_ROW){
+        while sqlite3_step(stmt) == SQLITE_ROW {
             let realmSongItem = RealmSong()
             
             let id = sqlite3_column_int(stmt, 0)

@@ -10,7 +10,7 @@ import UIKit
 
 class BooksViewController: UIViewController {
     
-    private var books:[Book] = []
+    private var books: [Book] = []
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var settingButton: UIButton!
@@ -21,26 +21,26 @@ class BooksViewController: UIViewController {
         setTableViewCells(books: getBooksOfCategory())
     }
     
-    private func getBooksOfCategory()->[Book]{
+    private func getBooksOfCategory() -> [Book] {
         let selectedIndex = categorySegmentedControl.selectedSegmentIndex
-        if let title = categorySegmentedControl.titleForSegment(at: selectedIndex){
+        if let title = categorySegmentedControl.titleForSegment(at: selectedIndex) {
             if title == "Daily" {
-                return SecondRealmManager.shared.getAllBooks().filter{ $0.isDaily == true }
+                return SecondRealmManager.shared.getAllBooks().filter { $0.isDaily == true }
             } else {
-                return SecondRealmManager.shared.getBooksOfCategory(category: title).filter{ $0.isDaily == false }
+                return SecondRealmManager.shared.getBooksOfCategory(category: title).filter { $0.isDaily == false }
             }
         }
         return []
     }
     
-    private func setTableView(){
+    private func setTableView() {
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.register(UINib(nibName: "BookTableViewCell", bundle: nil), forCellReuseIdentifier: "BookTableViewCell")
     }
     
-    private func setTableViewCells(books: [Book]){
+    private func setTableViewCells(books: [Book]) {
         self.books = books
         tableView.reloadData()
         if books.count == 0 { return }
@@ -62,7 +62,7 @@ class BooksViewController: UIViewController {
     }
 }
 
-extension BooksViewController:UITableViewDataSource{
+extension BooksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
@@ -76,31 +76,29 @@ extension BooksViewController:UITableViewDataSource{
     
 }
 
-
-extension BooksViewController:UITableViewDelegate{
+extension BooksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let finish = finishAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [finish])
     }
-    
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let clear = clearAction(at:indexPath)
+        let clear = clearAction(at: indexPath)
         //let send = sendAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [clear])
     }
     
-    private func finishAction(at indexPath:IndexPath) -> UIContextualAction{
+    private func finishAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let action = UIContextualAction(style: .normal, title: "") { [weak self] (action, view, completion) in
+        let action = UIContextualAction(style: .normal, title: "") { [weak self] (_, _, _) in
             
-            guard let `self` = self else{return}
+            guard let `self` = self else {return}
             
             let book = self.books[indexPath.row]
-            SecondRealmManager.shared.changeAllRead(title: book.title,isRead:true)
+            SecondRealmManager.shared.changeAllRead(title: book.title, isRead: true)
             
             let cell = self.tableView.cellForRow(at: indexPath) as! BookTableViewCell
             cell.book = book
@@ -112,14 +110,14 @@ extension BooksViewController:UITableViewDelegate{
         return action
     }
     
-    private func clearAction(at indexPath:IndexPath) -> UIContextualAction{
+    private func clearAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let action = UIContextualAction(style: .normal, title: "") { [weak self] (action, view, completion) in
+        let action = UIContextualAction(style: .normal, title: "") { [weak self] (_, _, _) in
             
-            guard let `self` = self else{return}
+            guard let `self` = self else {return}
             
             let book = self.books[indexPath.row]
-            SecondRealmManager.shared.changeAllRead(title: book.title,isRead:false)
+            SecondRealmManager.shared.changeAllRead(title: book.title, isRead: false)
             
             let cell = self.tableView.cellForRow(at: indexPath) as! BookTableViewCell
             cell.book = book
@@ -167,4 +165,3 @@ extension BooksViewController {
         vc.delegate = self
     }
 }
-

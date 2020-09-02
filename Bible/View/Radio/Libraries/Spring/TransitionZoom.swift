@@ -45,8 +45,7 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
                 toView.transform = CGAffineTransform.identity
                 toView.alpha = 1
             }
-        }
-        else {
+        } else {
             container.addSubview(toView)
             container.addSubview(fromView)
             

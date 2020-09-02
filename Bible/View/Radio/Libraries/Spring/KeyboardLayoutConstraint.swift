@@ -24,8 +24,8 @@ import UIKit
 
 public class KeyboardLayoutConstraint: NSLayoutConstraint {
     
-    private var offset : CGFloat = 0
-    private var keyboardVisibleHeight : CGFloat = 0
+    private var offset: CGFloat = 0
+    private var keyboardVisibleHeight: CGFloat = 0
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -62,7 +62,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     animations: {
                         UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
-                    }, completion: { finished in
+                    }, completion: { _ in
                 })
             default:
                 
@@ -91,7 +91,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     animations: {
                         UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
-                    }, completion: { finished in
+                    }, completion: { _ in
                 })
             default:
                 break

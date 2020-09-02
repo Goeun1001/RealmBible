@@ -348,7 +348,7 @@ open class FRadioPlayer: NSObject {
     /** Prepare the player from the passed AVAsset
      
      */
-    private func preparePlayer(with asset: AVAsset?, completionHandler: @escaping (_ isPlayable: Bool, _ asset: AVAsset?)->()) {
+    private func preparePlayer(with asset: AVAsset?, completionHandler: @escaping (_ isPlayable: Bool, _ asset: AVAsset?)->Void) {
         guard let asset = asset else {
             completionHandler(false, nil)
             return
@@ -480,14 +480,14 @@ open class FRadioPlayer: NSObject {
     @objc private func handleRouteChange(notification: Notification) {
         guard let userInfo = notification.userInfo,
             let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
-            let reason = AVAudioSession.RouteChangeReason(rawValue:reasonValue) else { return }
+            let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else { return }
         
         switch reason {
         case .newDeviceAvailable:
             checkHeadphonesConnection(outputs: AVAudioSession.sharedInstance().currentRoute.outputs)
         case .oldDeviceUnavailable:
             guard let previousRoute = userInfo[AVAudioSessionRouteChangePreviousRouteKey] as? AVAudioSessionRouteDescription else { return }
-            checkHeadphonesConnection(outputs: previousRoute.outputs);
+            checkHeadphonesConnection(outputs: previousRoute.outputs)
             DispatchQueue.main.async { self.headphonesConnected ? () : self.pause() }
         default: break
         }
@@ -496,7 +496,7 @@ open class FRadioPlayer: NSObject {
     // MARK: - KVO
     
     /// :nodoc:
-    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         
         if let item = object as? AVPlayerItem, let keyPath = keyPath, item == self.playerItem {
             
