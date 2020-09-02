@@ -56,7 +56,7 @@ class BookTableViewCell: UITableViewCell {
             flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
         }
     }
-  
+    
     private func updateCell(){
         bookNameLabel.text = book.title
         collectionView.reloadData()
@@ -68,13 +68,20 @@ class BookTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setCollectionView()
         selectionStyle = UITableViewCell.SelectionStyle.none
+        if #available(iOS 13, *) {
+            collectionView.backgroundColor = .systemBackground
+            //            label.textColor = .white
+        } else {
+            collectionView.backgroundColor = .white
+            //            label.textColor = .black
+        }
     }
     
 }
 
 
 extension BookTableViewCell:UICollectionViewDataSource{
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return book.pageList.count
     }
@@ -103,12 +110,12 @@ extension BookTableViewCell:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let page = book.pageList[indexPath.row]
         SecondRealmManager.shared.changeIsReadOfPage(title: book.title, pageNumber: page.pageNumber, isRead: !page.isRead)
-
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? PageCollectionViewCell{
             cell.toggle(isRead:page.isRead)
         }
         
     }
-
+    
     
 }

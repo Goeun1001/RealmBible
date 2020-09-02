@@ -11,6 +11,7 @@ import SwiftUI
 struct BibleListView: View {
     
     @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.colorScheme) var colorScheme
     @State private var dismissAll: Bool = false
     @ObservedObject private var bibleListVM = BibleListViewModel()
     
@@ -40,14 +41,15 @@ struct BibleListView: View {
             .navigationBarItems(trailing:
                 HStack(spacing: 20) {
                     Text("구약")
-                        .foregroundColor(self.isOld == "old" ? .black : .gray)
+                        .foregroundColor(self.isOld == "old" ? (self.colorScheme == .dark ? .white : .black) : .gray)
                         .onTapGesture {
                             self.isOld = "old"
                             UserDefaults.standard.set("old", forKey: "type")
                             UserDefaults.standard.synchronize()
                     }
                     Text("신약")
-                        .foregroundColor(self.isOld == "old" ? .gray : .black)
+                        .foregroundColor(self.isOld == "old" ? .gray : (self.colorScheme == .dark ? .white : .black))
+//                        .foregroundColor(self.isOld == "old" ? .gray : .black)
                         .onTapGesture {
                             self.isOld = "new"
                             UserDefaults.standard.set("new", forKey: "type")

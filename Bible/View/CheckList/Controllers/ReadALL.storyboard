@@ -74,6 +74,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categorySegmentedControl" destination="vHT-Zo-rBC" id="g94-rm-GUF"/>
+                        <outlet property="settingButton" destination="hHT-9u-h5U" id="XBf-fo-jfl"/>
                         <outlet property="tableView" destination="erX-eL-XCw" id="aLf-HB-76o"/>
                     </connections>
                 </viewController>

@@ -165,7 +165,7 @@
 		D98175A724E27AB50013CFC6 /* NanumSquareL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.otf; sourceTree = "<group>"; };
 		D9A9DF8F24E2C79B0049446E /* GyodokListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyodokListView.swift; sourceTree = "<group>"; };
 		D9A9DF9124E2C7A80049446E /* GyodokListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyodokListViewModel.swift; sourceTree = "<group>"; };
-		D9B8CFE524DAB51B00890693 /* Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bible.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9B8CFE524DAB51B00890693 /* 데일리 성경.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "데일리 성경.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B8CFE824DAB51B00890693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9B8CFEA24DAB51B00890693 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D9B8CFEE24DAB51E00890693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -471,7 +471,7 @@
 		D9B8CFE624DAB51B00890693 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D9B8CFE524DAB51B00890693 /* Bible.app */,
+				D9B8CFE524DAB51B00890693 /* 데일리 성경.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -754,7 +754,7 @@
 			packageProductDependencies = (
 			);
 			productName = Bible;
-			productReference = D9B8CFE524DAB51B00890693 /* Bible.app */;
+			productReference = D9B8CFE524DAB51B00890693 /* 데일리 성경.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1095,6 +1095,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Bible/Preview Content\"";
 				DEVELOPMENT_TEAM = C2JSJLJ4FN;
 				ENABLE_PREVIEWS = YES;
@@ -1103,8 +1104,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeonggo.Bible;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "데일리 성경";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1116,16 +1118,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Bible/Preview Content\"";
-				DEVELOPMENT_TEAM = C2JSJLJ4FN;
+				DEVELOPMENT_TEAM = TUK4G5QM6Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Bible/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeonggo.Bible;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "데일리 성경";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

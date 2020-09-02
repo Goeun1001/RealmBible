@@ -27,6 +27,13 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13, *) {
+            collectionView.backgroundColor = .systemBackground
+            view.backgroundColor = .systemBackground
+        } else {
+            collectionView.backgroundColor = .white
+            view.backgroundColor = .systemBackground
+        }
     }
 }
 

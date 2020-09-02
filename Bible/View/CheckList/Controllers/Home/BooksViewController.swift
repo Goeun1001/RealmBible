@@ -13,6 +13,8 @@ class BooksViewController: UIViewController {
     private var books:[Book] = []
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var settingButton: UIButton!
+    
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     
     @IBAction func categorySegmentedControlAction(_ sender: Any) {
@@ -49,6 +51,14 @@ class BooksViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
         setTableViewCells(books: getBooksOfCategory())
+        if #available(iOS 13, *) {
+            view.backgroundColor = .systemBackground
+            settingButton.tintColor = .white
+//            label.textColor = .white
+        } else {
+            view.backgroundColor = .white
+//            label.textColor = .black
+        }
     }
 }
 
