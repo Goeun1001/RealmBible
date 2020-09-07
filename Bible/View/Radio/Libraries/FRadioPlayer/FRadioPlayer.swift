@@ -348,7 +348,7 @@ open class FRadioPlayer: NSObject {
     /** Prepare the player from the passed AVAsset
      
      */
-    private func preparePlayer(with asset: AVAsset?, completionHandler: @escaping (_ isPlayable: Bool, _ asset: AVAsset?)->Void) {
+    private func preparePlayer(with asset: AVAsset?, completionHandler: @escaping (_ isPlayable: Bool, _ asset: AVAsset?) -> Void) {
         guard let asset = asset else {
             completionHandler(false, nil)
             return

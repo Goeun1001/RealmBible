@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8050A40B9A5A725420B971CD /* Pods_Bible.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C63845989443F2067BE0D85 /* Pods_Bible.framework */; };
+		93657202983919F45FF06A92 /* Pods_Bible_BibleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5181764AF16076F6D80E0F8D /* Pods_Bible_BibleTests.framework */; };
 		D905A7D524F3AAE800F7A83F /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A7D424F3AAE800F7A83F /* BooksViewController.swift */; };
 		D905A7D824F3AAEE00F7A83F /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905A7D624F3AAED00F7A83F /* BookTableViewCell.swift */; };
 		D905A7D924F3AAEE00F7A83F /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D905A7D724F3AAEE00F7A83F /* BookTableViewCell.xib */; };
@@ -43,6 +44,11 @@
 		D92D33DC24EB9BC100545047 /* SongImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33DB24EB9BC100545047 /* SongImageView.swift */; };
 		D92D33DE24EBB42600545047 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D33DD24EBB42600545047 /* SettingView.swift */; };
 		D962DEDE24FFAB3D00491EF5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D962DEDD24FFAB3D00491EF5 /* .swiftlint.yml */; };
+		D978FB52250623B900B50F53 /* BibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978FB51250623B900B50F53 /* BibleTests.swift */; };
+		D978FB5A250623CE00B50F53 /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978FB59250623CE00B50F53 /* RealmTests.swift */; };
+		D978FB5C2506242B00B50F53 /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978FB5B2506242B00B50F53 /* UserDefaultsTests.swift */; };
+		D978FB5E250644EE00B50F53 /* SettingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978FB5D250644EE00B50F53 /* SettingUp.swift */; };
+		D978FB6225064DA500B50F53 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D978FB6425064DA500B50F53 /* InfoPlist.strings */; };
 		D98175A024E25F360013CFC6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D981759F24E25F360013CFC6 /* ViewModelType.swift */; };
 		D98175A224E25FD80013CFC6 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98175A124E25FD80013CFC6 /* RealmError.swift */; };
 		D98175A824E27AB70013CFC6 /* NanumSquareB.otf in Resources */ = {isa = PBXBuildFile; fileRef = D98175A524E27AB40013CFC6 /* NanumSquareB.otf */; };
@@ -120,10 +126,23 @@
 		D9E0881D24EBF99600276FAE /* pinch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E0881C24EBF99600276FAE /* pinch.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D978FB54250623B900B50F53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9B8CFDD24DAB51A00890693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9B8CFE424DAB51B00890693;
+			remoteInfo = Bible;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		040F177356E1A3732CDC08DE /* Pods-Bible.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bible.debug.xcconfig"; path = "Target Support Files/Pods-Bible/Pods-Bible.debug.xcconfig"; sourceTree = "<group>"; };
 		435A21E47167074F7D9B942F /* Pods-Bible.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bible.release.xcconfig"; path = "Target Support Files/Pods-Bible/Pods-Bible.release.xcconfig"; sourceTree = "<group>"; };
+		5181764AF16076F6D80E0F8D /* Pods_Bible_BibleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bible_BibleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		942639D0EBD3E3ED78961CA9 /* Pods-Bible-BibleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bible-BibleTests.release.xcconfig"; path = "Target Support Files/Pods-Bible-BibleTests/Pods-Bible-BibleTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C63845989443F2067BE0D85 /* Pods_Bible.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bible.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C274D52A5074634017657F /* Pods-Bible-BibleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bible-BibleTests.debug.xcconfig"; path = "Target Support Files/Pods-Bible-BibleTests/Pods-Bible-BibleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D905A7D424F3AAE800F7A83F /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		D905A7D624F3AAED00F7A83F /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		D905A7D724F3AAEE00F7A83F /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
@@ -159,6 +178,14 @@
 		D92D33DB24EB9BC100545047 /* SongImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongImageView.swift; sourceTree = "<group>"; };
 		D92D33DD24EBB42600545047 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		D962DEDD24FFAB3D00491EF5 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D978FB4F250623B900B50F53 /* BibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D978FB51250623B900B50F53 /* BibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleTests.swift; sourceTree = "<group>"; };
+		D978FB53250623B900B50F53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D978FB59250623CE00B50F53 /* RealmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
+		D978FB5B2506242B00B50F53 /* UserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTests.swift; sourceTree = "<group>"; };
+		D978FB5D250644EE00B50F53 /* SettingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUp.swift; sourceTree = "<group>"; };
+		D978FB5F25064D6A00B50F53 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D978FB6325064DA500B50F53 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D981759F24E25F360013CFC6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		D98175A124E25FD80013CFC6 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		D98175A424E27AB40013CFC6 /* NanumSquareEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.otf; sourceTree = "<group>"; };
@@ -167,7 +194,7 @@
 		D98175A724E27AB50013CFC6 /* NanumSquareL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.otf; sourceTree = "<group>"; };
 		D9A9DF8F24E2C79B0049446E /* GyodokListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyodokListView.swift; sourceTree = "<group>"; };
 		D9A9DF9124E2C7A80049446E /* GyodokListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyodokListViewModel.swift; sourceTree = "<group>"; };
-		D9B8CFE524DAB51B00890693 /* 데일리 성경.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "데일리 성경.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9B8CFE524DAB51B00890693 /* Daily Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daily Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B8CFE824DAB51B00890693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9B8CFEA24DAB51B00890693 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D9B8CFEE24DAB51E00890693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,6 +268,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D978FB4C250623B900B50F53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93657202983919F45FF06A92 /* Pods_Bible_BibleTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9B8CFE224DAB51B00890693 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,6 +425,7 @@
 				D905A81A24F4D11100F7A83F /* Subview.swift */,
 				D905A81C24F4D12C00F7A83F /* PageViewController.swift */,
 				D905A81E24F4D15000F7A83F /* PageControl.swift */,
+				D978FB5D250644EE00B50F53 /* SettingUp.swift */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
@@ -411,6 +447,17 @@
 				D905A81124F4053700F7A83F /* BookmarkedView.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		D978FB50250623B900B50F53 /* BibleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D978FB51250623B900B50F53 /* BibleTests.swift */,
+				D978FB59250623CE00B50F53 /* RealmTests.swift */,
+				D978FB5B2506242B00B50F53 /* UserDefaultsTests.swift */,
+				D978FB53250623B900B50F53 /* Info.plist */,
+			);
+			path = BibleTests;
 			sourceTree = "<group>";
 		};
 		D98175A324E27AA40013CFC6 /* Font */ = {
@@ -457,6 +504,7 @@
 			children = (
 				D962DEDD24FFAB3D00491EF5 /* .swiftlint.yml */,
 				D9B8CFE724DAB51B00890693 /* Bible */,
+				D978FB50250623B900B50F53 /* BibleTests */,
 				D9B8CFE624DAB51B00890693 /* Products */,
 				E196A354CC8A4B952AB87177 /* Pods */,
 				E00A58D7E858D7F11BF657A2 /* Frameworks */,
@@ -466,7 +514,8 @@
 		D9B8CFE624DAB51B00890693 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D9B8CFE524DAB51B00890693 /* 데일리 성경.app */,
+				D9B8CFE524DAB51B00890693 /* Daily Bible.app */,
+				D978FB4F250623B900B50F53 /* BibleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -486,6 +535,7 @@
 				D9B8CFF324DAB51E00890693 /* LaunchScreen.storyboard */,
 				D9B8CFF624DAB51E00890693 /* Info.plist */,
 				D9B8CFF024DAB51E00890693 /* Preview Content */,
+				D978FB6425064DA500B50F53 /* InfoPlist.strings */,
 			);
 			path = Bible;
 			sourceTree = "<group>";
@@ -723,6 +773,7 @@
 			isa = PBXGroup;
 			children = (
 				9C63845989443F2067BE0D85 /* Pods_Bible.framework */,
+				5181764AF16076F6D80E0F8D /* Pods_Bible_BibleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -732,6 +783,8 @@
 			children = (
 				040F177356E1A3732CDC08DE /* Pods-Bible.debug.xcconfig */,
 				435A21E47167074F7D9B942F /* Pods-Bible.release.xcconfig */,
+				A0C274D52A5074634017657F /* Pods-Bible-BibleTests.debug.xcconfig */,
+				942639D0EBD3E3ED78961CA9 /* Pods-Bible-BibleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -739,6 +792,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D978FB4E250623B900B50F53 /* BibleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D978FB58250623B900B50F53 /* Build configuration list for PBXNativeTarget "BibleTests" */;
+			buildPhases = (
+				BAB0DB851468D44D602F5D6B /* [CP] Check Pods Manifest.lock */,
+				D978FB4B250623B900B50F53 /* Sources */,
+				D978FB4C250623B900B50F53 /* Frameworks */,
+				D978FB4D250623B900B50F53 /* Resources */,
+				3A0C83B23C91B6FEE2A069DC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D978FB55250623B900B50F53 /* PBXTargetDependency */,
+			);
+			name = BibleTests;
+			productName = BibleTests;
+			productReference = D978FB4F250623B900B50F53 /* BibleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D9B8CFE424DAB51B00890693 /* Bible */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9B8CFF924DAB51E00890693 /* Build configuration list for PBXNativeTarget "Bible" */;
@@ -747,7 +820,7 @@
 				D9B8CFE124DAB51B00890693 /* Sources */,
 				D9B8CFE224DAB51B00890693 /* Frameworks */,
 				D9B8CFE324DAB51B00890693 /* Resources */,
-				D962DEDC24FFAB2D00491EF5 /* ShellScript */,
+				D962DEDC24FFAB2D00491EF5 /* Run Script */,
 				457BC0280295D3414215EDA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -756,7 +829,7 @@
 			);
 			name = Bible;
 			productName = Bible;
-			productReference = D9B8CFE524DAB51B00890693 /* 데일리 성경.app */;
+			productReference = D9B8CFE524DAB51B00890693 /* Daily Bible.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -769,6 +842,10 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = jge;
 				TargetAttributes = {
+					D978FB4E250623B900B50F53 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D9B8CFE424DAB51B00890693;
+					};
 					D9B8CFE424DAB51B00890693 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -781,6 +858,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = D9B8CFDC24DAB51A00890693;
 			productRefGroup = D9B8CFE624DAB51B00890693 /* Products */;
@@ -788,16 +866,25 @@
 			projectRoot = "";
 			targets = (
 				D9B8CFE424DAB51B00890693 /* Bible */,
+				D978FB4E250623B900B50F53 /* BibleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D978FB4D250623B900B50F53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9B8CFE324DAB51B00890693 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D962DEDE24FFAB3D00491EF5 /* .swiftlint.yml in Resources */,
+				D978FB6225064DA500B50F53 /* InfoPlist.strings in Resources */,
 				D905A7F524F3ABCA00F7A83F /* category_type_1.txt in Resources */,
 				D9C332B524E1638100968023 /* holybible.db in Resources */,
 				D98175AB24E27AC10013CFC6 /* NanumSquareR.otf in Resources */,
@@ -845,6 +932,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3A0C83B23C91B6FEE2A069DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bible-BibleTests/Pods-Bible-BibleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bible-BibleTests/Pods-Bible-BibleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bible-BibleTests/Pods-Bible-BibleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		457BC0280295D3414215EDA0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -862,7 +966,29 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bible/Pods-Bible-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D962DEDC24FFAB2D00491EF5 /* ShellScript */ = {
+		BAB0DB851468D44D602F5D6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bible-BibleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D962DEDC24FFAB2D00491EF5 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -871,6 +997,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -882,6 +1009,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D978FB4B250623B900B50F53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D978FB5C2506242B00B50F53 /* UserDefaultsTests.swift in Sources */,
+				D978FB52250623B900B50F53 /* BibleTests.swift in Sources */,
+				D978FB5A250623CE00B50F53 /* RealmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9B8CFE124DAB51B00890693 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -952,6 +1089,7 @@
 				D9B8D01724DC2ABE00890693 /* BibleListViewModel.swift in Sources */,
 				D9DD7DC924F14A64005F2A92 /* SpringTextField.swift in Sources */,
 				D9DD7DBE24F14A64005F2A92 /* Spring.swift in Sources */,
+				D978FB5E250644EE00B50F53 /* SettingUp.swift in Sources */,
 				D9B8D01A24DC2C9B00890693 /* BibleListView.swift in Sources */,
 				D9DD7DC224F14A64005F2A92 /* BlurView.swift in Sources */,
 				D9B8CFEB24DAB51B00890693 /* SceneDelegate.swift in Sources */,
@@ -981,11 +1119,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D978FB55250623B900B50F53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9B8CFE424DAB51B00890693 /* Bible */;
+			targetProxy = D978FB54250623B900B50F53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		D978FB6425064DA500B50F53 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D978FB6325064DA500B50F53 /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D9B8CFF324DAB51E00890693 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D9B8CFF424DAB51E00890693 /* Base */,
+				D978FB5F25064D6A00B50F53 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -993,10 +1148,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D978FB56250623B900B50F53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0C274D52A5074634017657F /* Pods-Bible-BibleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JSJLJ4FN;
+				INFOPLIST_FILE = BibleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonggo.BibleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daily Bible.app/Daily Bible";
+			};
+			name = Debug;
+		};
+		D978FB57250623B900B50F53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 942639D0EBD3E3ED78961CA9 /* Pods-Bible-BibleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JSJLJ4FN;
+				INFOPLIST_FILE = BibleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonggo.BibleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daily Bible.app/Daily Bible";
+			};
+			name = Release;
+		};
 		D9B8CFF724DAB51E00890693 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1057,6 +1255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1124,7 +1323,7 @@
 				);
 				MARKETING_VERSION = 1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeonggo.Bible;
-				PRODUCT_NAME = "데일리 성경";
+				PRODUCT_NAME = "Daily Bible";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1147,7 +1346,7 @@
 				);
 				MARKETING_VERSION = 1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeonggo.Bible;
-				PRODUCT_NAME = "데일리 성경";
+				PRODUCT_NAME = "Daily Bible";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1156,6 +1355,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D978FB58250623B900B50F53 /* Build configuration list for PBXNativeTarget "BibleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D978FB56250623B900B50F53 /* Debug */,
+				D978FB57250623B900B50F53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D9B8CFE024DAB51A00890693 /* Build configuration list for PBXProject "Bible" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

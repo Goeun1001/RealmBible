@@ -24,6 +24,8 @@ struct OnboardingView: View {
     
     var captions =  ["구절을 두 번 누르면 북마크할 수 있습니다.", "상단 버튼으로 구절 이동을 할 수 있습니다.", "통독표가 생겼습니다! 왼쪽으로 스와이프 시 전체 읽음, 오른쪽으로 스와이프 시 리셋됩니다.", "통독표의 Daily 탭으로 매일 관리하고 싶은 목록을 만들 수 있습니다.", "앱 최초 실행 시에만 로딩됩니다. 튜토리얼을 오랫동안 읽는다면 바로 실행될지도 모르죠!"]
     
+    let setting = SettingUp()
+    
     @State var currentPageIndex = 0
     @EnvironmentObject var settings: LoadingSettings
     @Environment(\.colorScheme) var colorScheme
@@ -90,15 +92,7 @@ struct OnboardingView: View {
         //        DispatchQueue.Concurrent.asyncAfter
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
 //            self.hasTimeElapsed = true
-            DataReader().setUpRealm()
-            UserDefaults.standard.set("GAE", forKey: "vcode")
-            UserDefaults.standard.set("1", forKey: "bcode")
-            UserDefaults.standard.set("1", forKey: "cnum")
-            UserDefaults.standard.set("old", forKey: "type")
-            UserDefaults.standard.set(true, forKey: "isLoaded")
-            UserDefaults.standard.set(true, forKey: "isChanged")
-            UserDefaults.standard.set(0, forKey: "selectedIndex")
-            UserDefaults.standard.synchronize()
+            self.setting.setUp()
             
             if self.isLoaded {
                 DispatchQueue.main.async {

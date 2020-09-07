@@ -47,7 +47,7 @@ public func degreesToRadians(degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(CGFloat.pi / 180)
 }
 
-public func delay(delay: Double, closure: @escaping ()->Void) {
+public func delay(delay: Double, closure: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 

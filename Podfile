@@ -11,4 +11,9 @@ pod 'WaterfallGrid'
 pod 'lottie-ios'
 pod 'SwiftLint'
 
+target 'BibleTests' do
+pod 'RealmSwift'
+
+end
+
 end

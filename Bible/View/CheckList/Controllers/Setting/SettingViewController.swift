@@ -23,7 +23,7 @@ class SettingViewController: UIViewController {
     }
     
     private var books = SecondRealmManager.shared.getAllBooks()
-    weak var delegate: SettingDelegate?
+    var delegate: SettingDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

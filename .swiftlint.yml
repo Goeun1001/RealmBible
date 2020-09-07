@@ -2,6 +2,7 @@ included:
 
 excluded:
 - Pods
+- Bible/View/CheckList/Controllers/Setting/SettingViewController.swift
 
 disabled_rules:
 - trailing_whitespace
